@@ -8,6 +8,7 @@ import { FileText, ExternalLink } from 'lucide-react'
 import SectionHeader from '@/components/ui/SectionHeader'
 import OrderOnlineButton from '@/components/ui/OrderOnlineButton'
 import { menuSections } from '@/data/menu'
+import { business } from '@/data/business'
 
 const sectionImages: Record<string, { src: string; alt: string }> = {
   pizza: { src: '/images/menu-pizza.jpg', alt: 'BBQ pizza at The Merc — loaded toppings, fresh from the oven' },
@@ -195,11 +196,11 @@ export default function MenuPageClient() {
                     Visit Us
                   </Link>
                   <Link
-                    href="tel:+16055730913"
+                    href={business.contact.phoneHref}
                     className="text-xs text-merc-muted hover:text-amber-merc transition-colors flex items-center gap-1.5"
                     aria-label="Call The Merc"
                   >
-                    Or call (605) 573-0913
+                    Or call {business.contact.phone}
                   </Link>
                 </div>
               </div>

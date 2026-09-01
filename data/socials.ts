@@ -15,7 +15,6 @@ export const socials = {
     label: 'Facebook',
   },
   tiktok: {
-    // TODO: Confirm TikTok handle from Linktree
     url: 'https://www.tiktok.com/@themercsodak',
     handle: '@themercsodak',
     label: 'TikTok',

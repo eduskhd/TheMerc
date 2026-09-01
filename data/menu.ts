@@ -107,7 +107,7 @@ export const menuSections: MenuSection[] = [
     icon: '☕',
     description:
       'Dakota Joe Coffee Co. served fresh every morning. The coffee bar brings a warm, welcoming vibe to The Merc.',
-    heroImage: '/images/menu-coffee.jpg',
+    heroImage: '/images/merc-interior-sign.jpg',
     categories: [
       {
         id: 'coffee-menu',
