@@ -11,11 +11,34 @@ import {
   type MercEvent,
 } from '@/data/events'
 import { socials } from '@/data/socials'
+import { getClient, isSanityConfigured } from '@/lib/sanity/client'
+import { upcomingEventsQuery } from '@/lib/sanity/queries'
 
 export const metadata: Metadata = {
   title: 'Events & Live Music',
   description:
     "Live music, trivia nights, and community events at The Merc in Flandreau, SD. Check out what's coming up.",
+}
+
+export const revalidate = 60
+
+async function fetchEvents(): Promise<{ upcoming: MercEvent[]; tonight: MercEvent[] }> {
+  if (!isSanityConfigured) {
+    return {
+      upcoming: getUpcomingEvents(),
+      tonight: getTonightEvents(),
+    }
+  }
+
+  try {
+    const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Chicago' })
+    const sanityClient = getClient()!
+    const events: MercEvent[] = await sanityClient.fetch(upcomingEventsQuery, { today })
+    const tonight = events.filter((e) => e.date === today)
+    return { upcoming: events, tonight }
+  } catch {
+    return { upcoming: getUpcomingEvents(), tonight: getTonightEvents() }
+  }
 }
 
 function EventRow({ event }: { event: MercEvent }) {
@@ -104,9 +127,8 @@ function EventRow({ event }: { event: MercEvent }) {
   )
 }
 
-export default function EventsPage() {
-  const upcomingEvents = getUpcomingEvents()
-  const tonightEvents = getTonightEvents()
+export default async function EventsPage() {
+  const { upcoming: upcomingEvents, tonight: tonightEvents } = await fetchEvents()
   const hasTonightEvent = tonightEvents.length > 0
 
   return (
@@ -114,7 +136,6 @@ export default function EventsPage() {
 
       {/* Hero */}
       <div className="relative bg-merc-surface border-b border-merc-border overflow-hidden">
-        {/* Background image */}
         <div className="absolute inset-0">
           <Image
             src="/images/merc-events.jpg"

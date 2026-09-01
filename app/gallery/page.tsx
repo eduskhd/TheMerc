@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { Instagram } from 'lucide-react'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { socials } from '@/data/socials'
+import { getClient, isSanityConfigured } from '@/lib/sanity/client'
+import { galleryImagesQuery } from '@/lib/sanity/queries'
 
 export const metadata: Metadata = {
   title: 'Gallery',
@@ -11,94 +13,51 @@ export const metadata: Metadata = {
     'Photos from The Merc — food, drinks, live music, and community moments from Flandreau, South Dakota.',
 }
 
-const galleryItems = [
-  {
-    id: 'outdoor-concert',
-    src: '/images/gallery/merc-events-outdoor.jpg',
-    alt: 'Live music night at The Merc outdoor stage — string lights at twilight, band performing, community gathered',
-    category: 'music',
-    span: 'col-span-2 row-span-2',
-  },
-  {
-    id: 'bar',
-    src: '/images/gallery/merc-bar.jpg',
-    alt: 'The Merc bar interior — rustic wood bar, THE MERC sign, longhorn skull, tap handles',
-    category: 'venue',
-    span: '',
-  },
-  {
-    id: 'cocktail',
-    src: '/images/gallery/merc-cocktail.jpg',
-    alt: 'Craft Bloody Mary cocktail at The Merc — spicy rim, pickled garnish, THE MERC sign in background',
-    category: 'drinks',
-    span: '',
-  },
-  {
-    id: 'pizza-bbq',
-    src: '/images/gallery/merc-pizza-bbq.jpg',
-    alt: 'BBQ pizza from The Merc — loaded with jalapeños, red onions, and cheese',
-    category: 'food',
-    span: 'col-span-2',
-  },
-  {
-    id: 'burger-parmesan',
-    src: '/images/gallery/merc-burger-parmesan.jpg',
-    alt: 'Garlic Parmesan Burger at The Merc — crispy patty, parmesan, rustic bar backdrop',
-    category: 'food',
-    span: '',
-  },
-  {
-    id: 'events-crowd',
-    src: '/images/gallery/merc-events-crowd.jpg',
-    alt: 'Outdoor event at The Merc — crowd enjoying live music with string lights',
-    category: 'music',
-    span: '',
-  },
-  {
-    id: 'chili-fries',
-    src: '/images/gallery/merc-chili-fries.jpg',
-    alt: 'Loaded chili cheese fries at The Merc — topped with jalapeños and red onions',
-    category: 'food',
-    span: '',
-  },
-  {
-    id: 'community',
-    src: '/images/gallery/merc-community.jpg',
-    alt: 'Community night at The Merc — packed bar, Halloween party, live music and laughter',
-    category: 'people',
-    span: 'col-span-2',
-  },
-  {
-    id: 'pizza-cheese',
-    src: '/images/gallery/merc-pizza-cheese.jpg',
-    alt: 'Fresh cheese pizza from The Merc — golden crust, bubbling mozzarella in a square pan',
-    category: 'food',
-    span: '',
-  },
-  {
-    id: 'burger-cowboy',
-    src: '/images/gallery/merc-burger-cowboy.jpg',
-    alt: 'Cowboy Layer Cake Burger at The Merc — double patty smash burger with melted cheese',
-    category: 'food',
-    span: '',
-  },
-  {
-    id: 'decor',
-    src: '/images/gallery/merc-decor.jpg',
-    alt: 'The Merc interior decor — longhorn skull on concrete wall, "Beer Will Change The World" sign',
-    category: 'venue',
-    span: '',
-  },
-  {
-    id: 'bratwurst',
-    src: '/images/gallery/merc-bratwurst.jpg',
-    alt: 'Bratwurst with sauerkraut and fries at The Merc — craft beer taps visible in background',
-    category: 'food',
-    span: '',
-  },
+export const revalidate = 3600
+
+interface GalleryItem {
+  id: string
+  src: string
+  alt: string
+  category: string
+  span?: string
+}
+
+const staticGallery: GalleryItem[] = [
+  { id: 'outdoor-concert', src: '/images/gallery/merc-events-outdoor.jpg', alt: 'Live music night at The Merc outdoor stage — string lights at twilight', category: 'music', span: 'col-span-2 row-span-2' },
+  { id: 'bar', src: '/images/gallery/merc-bar.jpg', alt: 'The Merc bar interior — rustic wood bar, THE MERC sign, longhorn skull', category: 'venue' },
+  { id: 'cocktail', src: '/images/gallery/merc-cocktail.jpg', alt: 'Craft Bloody Mary cocktail at The Merc bar', category: 'drinks' },
+  { id: 'pizza-bbq', src: '/images/gallery/merc-pizza-bbq.jpg', alt: 'BBQ pizza from The Merc — loaded with jalapeños, red onions, and cheese', category: 'food', span: 'col-span-2' },
+  { id: 'burger-parmesan', src: '/images/gallery/merc-burger-parmesan.jpg', alt: 'Garlic Parmesan Burger at The Merc', category: 'food' },
+  { id: 'events-crowd', src: '/images/gallery/merc-events-crowd.jpg', alt: 'Outdoor event at The Merc — crowd enjoying live music', category: 'music' },
+  { id: 'chili-fries', src: '/images/gallery/merc-chili-fries.jpg', alt: 'Loaded chili cheese fries at The Merc', category: 'food' },
+  { id: 'community', src: '/images/gallery/merc-community.jpg', alt: 'Community night at The Merc — packed bar, Halloween party', category: 'people', span: 'col-span-2' },
+  { id: 'pizza-cheese', src: '/images/gallery/merc-pizza-cheese.jpg', alt: 'Fresh cheese pizza from The Merc', category: 'food' },
+  { id: 'burger-cowboy', src: '/images/gallery/merc-burger-cowboy.jpg', alt: 'Cowboy Layer Cake Burger at The Merc', category: 'food' },
+  { id: 'decor', src: '/images/gallery/merc-decor.jpg', alt: 'The Merc interior decor — longhorn skull on concrete wall', category: 'venue' },
+  { id: 'bratwurst', src: '/images/gallery/merc-bratwurst.jpg', alt: 'Bratwurst with sauerkraut and fries at The Merc', category: 'food' },
 ]
 
-export default function GalleryPage() {
+const spanPatterns = ['col-span-2 row-span-2', 'col-span-2', '', '', '', 'col-span-2', '', '', '', 'col-span-2', '', '']
+
+async function fetchGallery(): Promise<GalleryItem[]> {
+  if (!isSanityConfigured) return staticGallery
+
+  try {
+    const items = await getClient()!.fetch(galleryImagesQuery)
+    if (!items || items.length === 0) return staticGallery
+    return items.map((item: GalleryItem, i: number) => ({
+      ...item,
+      span: spanPatterns[i % spanPatterns.length] ?? '',
+    }))
+  } catch {
+    return staticGallery
+  }
+}
+
+export default async function GalleryPage() {
+  const galleryItems = await fetchGallery()
+
   return (
     <div className="pt-20 min-h-screen bg-merc-dark">
 
@@ -120,7 +79,7 @@ export default function GalleryPage() {
           {galleryItems.map((item) => (
             <div
               key={item.id}
-              className={`relative overflow-hidden rounded-sm group cursor-pointer ${item.span}`}
+              className={`relative overflow-hidden rounded-sm group cursor-pointer ${item.span ?? ''}`}
             >
               <Image
                 src={item.src}
