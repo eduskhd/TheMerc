@@ -45,9 +45,10 @@ export const business = {
 
   timezone: 'America/Chicago', // Flandreau, SD — Central Time
 
-  // Google Reviews
+  // Google Reviews — opens Google Maps search for The Merc; user clicks "Write a review" from the business card.
+  // To get the direct write-review link: find The Merc on Google Maps, click Share → Copy link, then append &hl=en#lrd=PLACE_ID,1
   googleReviewUrl:
-    'https://search.google.com/local/writereview?placeid=ChIJ0ef0dNBpgYcRfX7z9WVmHj8',
+    'https://www.google.com/maps/search/?api=1&query=The+Merc+113+E+2nd+Ave+Flandreau+SD+57028',
 
   // TODO: Add Square ordering URL when available
   // squareOrderUrl: process.env.NEXT_PUBLIC_SQUARE_ORDER_URL || '',
