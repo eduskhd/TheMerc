@@ -23,7 +23,7 @@ export default function OrderOnlineButton({
           href={squareOrderUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className={`btn-primary text-xs px-4 py-2.5 ${className}`}
+          className={`btn-primary text-xs px-4 py-2.5 whitespace-nowrap ${className}`}
           aria-label="Order online from The Merc"
         >
           <ShoppingBag size={14} />
@@ -33,7 +33,7 @@ export default function OrderOnlineButton({
     }
     return (
       <span
-        className={`inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold tracking-widest uppercase bg-merc-surface text-merc-muted rounded-sm cursor-not-allowed border border-merc-border ${className}`}
+        className={`inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold tracking-widest uppercase bg-merc-surface text-merc-muted rounded-sm cursor-not-allowed border border-merc-border whitespace-nowrap ${className}`}
         title="Online ordering coming soon"
         aria-label="Online ordering coming soon"
       >

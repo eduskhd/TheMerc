@@ -1,5 +1,11 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Home, UtensilsCrossed, Calendar } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Page Not Found',
+  description: 'This page does not exist — but The Merc does. Find us in Flandreau, SD.',
+}
 
 export default function NotFound() {
   return (

@@ -38,6 +38,7 @@ export default function MenuPageClient() {
       <div className="bg-merc-surface border-b border-merc-border py-12 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
+            as="h1"
             label="The Merc"
             title="Our Menu"
             subtitle="From breakfast coffee to late-night drinks. We've got you covered."

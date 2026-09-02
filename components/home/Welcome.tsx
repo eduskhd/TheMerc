@@ -1,13 +1,14 @@
 import Image from 'next/image'
+import { Pizza, Coffee, Beer, Music, Users, Heart } from 'lucide-react'
 import SectionHeader from '@/components/ui/SectionHeader'
 
 const pillars = [
-  { icon: '🍕', label: 'Food' },
-  { icon: '☕', label: 'Coffee' },
-  { icon: '🍺', label: 'Drinks' },
-  { icon: '🎸', label: 'Music' },
-  { icon: '👥', label: 'Friends' },
-  { icon: '❤️', label: 'Community' },
+  { icon: Pizza, label: 'Food' },
+  { icon: Coffee, label: 'Coffee' },
+  { icon: Beer, label: 'Drinks' },
+  { icon: Music, label: 'Music' },
+  { icon: Users, label: 'Friends' },
+  { icon: Heart, label: 'Community' },
 ]
 
 export default function Welcome() {
@@ -54,7 +55,7 @@ export default function Welcome() {
                   key={p.label}
                   className="flex items-center gap-2 px-3 py-2 bg-merc-surface border border-merc-border rounded-sm"
                 >
-                  <span aria-hidden="true">{p.icon}</span>
+                  <p.icon size={14} className="text-amber-merc" aria-hidden="true" />
                   <span className="text-xs font-semibold tracking-widest uppercase text-merc-muted">
                     {p.label}
                   </span>

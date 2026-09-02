@@ -52,6 +52,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px]">
           <div className="py-16 px-4 sm:px-6 lg:px-12 flex flex-col justify-center">
             <SectionHeader
+              as="h1"
               label="About The Merc"
               title="Flandreau's Own"
               subtitle="We're not a chain. We're not a franchise. We're The Merc — and we're proud to call Flandreau home."

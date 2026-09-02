@@ -4,6 +4,7 @@ interface SectionHeaderProps {
   subtitle?: string
   centered?: boolean
   light?: boolean
+  as?: 'h1' | 'h2'
 }
 
 export default function SectionHeader({
@@ -12,24 +13,26 @@ export default function SectionHeader({
   subtitle,
   centered = false,
   light = false,
+  as: Tag = 'h2',
 }: SectionHeaderProps) {
   return (
     <div className={centered ? 'text-center' : ''}>
       {label && (
         <p className="section-label mb-3">{label}</p>
       )}
-      <h2
+      <Tag
         className={`display-md font-display ${light ? 'text-merc-black' : 'text-merc-cream'}`}
         style={{ fontFamily: 'var(--font-playfair)' }}
       >
         {title}
-      </h2>
+      </Tag>
       {subtitle && (
         <p className={`mt-3 text-base leading-relaxed max-w-xl ${centered ? 'mx-auto' : ''} ${light ? 'text-merc-black/60' : 'text-merc-cream/60'}`}>
           {subtitle}
         </p>
       )}
       <div className={`section-divider mt-4 ${centered ? 'mx-auto' : ''}`} />
+
     </div>
   )
 }

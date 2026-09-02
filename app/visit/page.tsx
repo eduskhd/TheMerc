@@ -23,6 +23,7 @@ export default function VisitPage() {
       <div className="bg-merc-surface border-b border-merc-border py-12 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <SectionHeader
+            as="h1"
             label="Come See Us"
             title="Visit The Merc"
             subtitle={`We're at ${business.address.full} — right in the heart of Flandreau.`}
@@ -210,49 +211,17 @@ export default function VisitPage() {
           {/* Right: Map */}
           <div className="space-y-4">
             <div className="bg-merc-surface border border-merc-border rounded-sm overflow-hidden">
-              <div className="aspect-[4/3] bg-merc-card relative">
-                {/* Map embed placeholder */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
-                  <MapPin size={40} className="text-amber-merc" aria-hidden="true" />
-                  <div>
-                    <p className="text-merc-cream font-bold mb-1">The Merc</p>
-                    <p className="text-merc-muted text-sm">{business.address.full}</p>
-                  </div>
-                  <Link
-                    href={business.address.googleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary text-sm"
-                    aria-label="Open The Merc location in Google Maps"
-                  >
-                    <Navigation size={15} />
-                    Open in Google Maps
-                  </Link>
-                  <p className="text-xs text-merc-muted max-w-xs">
-                    For an embedded map, add the Google Maps embed URL to{' '}
-                    <code className="text-amber-merc/70">data/business.ts</code> and
-                    replace this component with an iframe.
-                  </p>
-                </div>
-
-                {/*
-                  TODO: Replace with Google Maps iframe embed:
-
-                  <iframe
-                    title="The Merc on Google Maps"
-                    src={business.address.googleMapsEmbedUrl}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-
-                  Note: Embedding Google Maps requires a Maps JavaScript API key
-                  for production use. The static embed URL may work without a key
-                  but has usage limits.
-                */}
+              <div className="aspect-[4/3] relative">
+                <iframe
+                  title="The Merc on Google Maps"
+                  src={business.address.googleMapsEmbedUrl}
+                  width="100%"
+                  height="100%"
+                  className="absolute inset-0 w-full h-full border-0"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
             </div>
 

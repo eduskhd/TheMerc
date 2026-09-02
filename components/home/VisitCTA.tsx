@@ -35,8 +35,9 @@ export default function VisitCTA() {
               id="visit-cta-heading"
               className="display-md font-display text-merc-cream mb-4"
               style={{ fontFamily: 'var(--font-playfair)' }}
+              aria-label="Find Us in Flandreau"
             >
-              Find Us in<br />Flandreau
+              Find Us in<br aria-hidden="true" />Flandreau
             </h2>
             <p className="text-merc-cream/60 text-base leading-relaxed mb-8 max-w-sm">
               We&apos;re right in the heart of town on E 2nd Ave. Easy to find, hard to leave.

@@ -149,6 +149,7 @@ export default async function EventsPage() {
         </div>
         <div className="relative py-16 px-4 sm:px-6 max-w-7xl mx-auto">
           <SectionHeader
+            as="h1"
             label="Live at The Merc"
             title="Events & Music"
             subtitle="From local live music to community trivia nights — something's always happening at The Merc."

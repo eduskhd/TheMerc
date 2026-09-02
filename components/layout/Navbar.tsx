@@ -141,7 +141,7 @@ export default function Navbar() {
       {/* Skip to content for accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] btn-primary text-sm"
+        className="fixed top-4 left-4 z-[100] btn-primary text-sm -translate-y-20 focus:translate-y-0 transition-transform duration-150 focus:outline-none"
       >
         Skip to main content
       </a>
