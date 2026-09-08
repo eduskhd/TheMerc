@@ -82,7 +82,7 @@ export default function QuickInfo() {
           </div>
 
           {/* Directions + Order */}
-          <div className="col-span-2 sm:col-span-4 lg:col-span-1 flex items-center gap-3 lg:justify-end">
+          <div className="col-span-2 sm:col-span-4 lg:col-span-1 flex flex-wrap items-center gap-2 lg:justify-end">
             <Link
               href={business.address.googleMapsUrl}
               target="_blank"
