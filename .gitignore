@@ -34,9 +34,13 @@ next-env.d.ts
 # Build artifacts
 tsconfig.tsbuildinfo
 
-# Claude Code worktrees and MCP
+# Claude Code worktrees, MCP, and skill output
 .claude/worktrees/
 .playwright-mcp/
+.claude/skills/playwright/audit-screenshots/
+.claude/skills/playwright/test-screenshots/
+.claude/skills/playwright/package-lock.json
+.claude/skills/frontend-visual-qa/audit-output/
 
 # Sanity Studio cache
 studio/.sanity/
