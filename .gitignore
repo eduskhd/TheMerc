@@ -30,3 +30,13 @@ npm-debug.log*
 
 # Type declarations
 next-env.d.ts
+
+# Build artifacts
+tsconfig.tsbuildinfo
+
+# Claude Code worktrees and MCP
+.claude/worktrees/
+.playwright-mcp/
+
+# Sanity Studio cache
+studio/.sanity/
