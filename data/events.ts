@@ -129,7 +129,8 @@ export function getTonightEvents(): MercEvent[] {
 }
 
 /** Formats a 24h time string to 12h display */
-export function formatTime(time24: string): string {
+export function formatTime(time24: string | undefined | null): string {
+  if (!time24 || !time24.includes(':')) return time24 ?? ''
   const [h, m] = time24.split(':').map(Number)
   const period = h >= 12 ? 'PM' : 'AM'
   const h12 = h % 12 || 12
