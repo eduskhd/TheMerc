@@ -11,11 +11,11 @@ import { menuSections } from '@/data/menu'
 import { business } from '@/data/business'
 
 const sectionImages: Record<string, { src: string; alt: string }> = {
-  pizza: { src: '/images/menu-pizza.jpg', alt: 'BBQ pizza at The Merc — loaded toppings, fresh from the oven' },
-  burgers: { src: '/images/menu-burgers.jpg', alt: 'Garlic Parmesan Burger at The Merc — handcrafted and award-winning' },
-  'good-eats': { src: '/images/menu-good-eats.jpg', alt: 'Chili cheese fries at The Merc — loaded with toppings' },
-  coffee: { src: '/images/merc-interior-sign.jpg', alt: 'Dakota Joe Coffee bar at The Merc — morning coffee, espresso drinks' },
-  drinks: { src: '/images/menu-drinks.jpg', alt: 'Craft cocktails and drinks at The Merc outdoor bar' },
+  pizza: { src: '/images/menu/menu-pizza.jpg', alt: 'BBQ pizza at The Merc — loaded toppings, fresh from the oven' },
+  burgers: { src: '/images/menu/menu-burgers.jpg', alt: 'Garlic Parmesan Burger at The Merc — handcrafted and award-winning' },
+  'good-eats': { src: '/images/menu/menu-good-eats.jpg', alt: 'Chili cheese fries at The Merc — loaded with toppings' },
+  coffee: { src: '/images/venue/merc-interior-sign.jpg', alt: 'Dakota Joe Coffee bar at The Merc — morning coffee, espresso drinks' },
+  drinks: { src: '/images/menu/menu-drinks.jpg', alt: 'Craft cocktails and drinks at The Merc outdoor bar' },
 }
 
 export default function MenuPageClient() {

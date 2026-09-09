@@ -2,13 +2,12 @@
 
 import Link from 'next/link'
 import { ShoppingBag, Clock } from 'lucide-react'
+import { squareOrderUrl } from '@/lib/square/config'
 
 interface OrderOnlineButtonProps {
   variant?: 'navbar' | 'hero' | 'full' | 'mobile'
   className?: string
 }
-
-const squareOrderUrl = process.env.NEXT_PUBLIC_SQUARE_ORDER_URL
 
 export default function OrderOnlineButton({
   variant = 'full',

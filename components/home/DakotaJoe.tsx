@@ -15,7 +15,7 @@ export default function DakotaJoe() {
           {/* Image Side — coffee bar / interior sign */}
           <div className="relative lg:order-2 h-64 lg:h-auto min-h-[320px]">
             <Image
-              src="/images/merc-interior-sign.jpg"
+              src="/images/venue/merc-interior-sign.jpg"
               alt="Dakota Joe Coffee bar at The Merc — vintage Ben Franklin sign, tables and coffee cups"
               fill
               className="object-cover object-center"

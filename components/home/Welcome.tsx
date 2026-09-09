@@ -70,7 +70,7 @@ export default function Welcome() {
               {/* Main bar interior — spans full width */}
               <div className="col-span-2 relative aspect-[16/9] rounded-sm overflow-hidden">
                 <Image
-                  src="/images/merc-bar.jpg"
+                  src="/images/venue/merc-bar.jpg"
                   alt="The Merc bar interior — rustic wood bar, THE MERC sign, longhorn skull"
                   fill
                   className="object-cover object-center hover:scale-105 transition-transform duration-700"
@@ -81,7 +81,7 @@ export default function Welcome() {
               {/* Cocktail */}
               <div className="relative aspect-square rounded-sm overflow-hidden">
                 <Image
-                  src="/images/merc-cocktail.jpg"
+                  src="/images/venue/merc-cocktail.jpg"
                   alt="Craft cocktail at The Merc — Bloody Mary with THE MERC bar in background"
                   fill
                   className="object-cover object-center hover:scale-105 transition-transform duration-700"
@@ -92,7 +92,7 @@ export default function Welcome() {
               {/* Outdoor events */}
               <div className="relative aspect-square rounded-sm overflow-hidden">
                 <Image
-                  src="/images/merc-events.jpg"
+                  src="/images/venue/merc-events.jpg"
                   alt="Live music at The Merc outdoor stage — string lights, band, community"
                   fill
                   className="object-cover object-top hover:scale-105 transition-transform duration-700"

@@ -63,7 +63,7 @@ export default function AboutPage() {
           </div>
           <div className="relative hidden lg:block min-h-[400px]">
             <Image
-              src="/images/merc-bar.jpg"
+              src="/images/venue/merc-bar.jpg"
               alt="The Merc bar interior — rustic wood bar, THE MERC sign, longhorn skull on the wall"
               fill
               className="object-cover object-center"
@@ -119,7 +119,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 gap-3">
             <div className="col-span-2 relative aspect-video rounded-sm overflow-hidden">
               <Image
-                src="/images/merc-events.jpg"
+                src="/images/venue/merc-events.jpg"
                 alt="Live music at The Merc outdoor stage — crowd gathered under string lights at twilight"
                 fill
                 className="object-cover object-top"
@@ -128,7 +128,7 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-square rounded-sm overflow-hidden">
               <Image
-                src="/images/merc-decor.jpg"
+                src="/images/venue/merc-decor.jpg"
                 alt="The Merc interior decor — longhorn skull on concrete wall, rustic bar atmosphere"
                 fill
                 className="object-cover object-center"
@@ -137,7 +137,7 @@ export default function AboutPage() {
             </div>
             <div className="relative aspect-square rounded-sm overflow-hidden">
               <Image
-                src="/images/merc-interior-sign.jpg"
+                src="/images/venue/merc-interior-sign.jpg"
                 alt="Dakota Joe Coffee bar at The Merc — vintage interior signage, tables and coffee area"
                 fill
                 className="object-cover object-center"

@@ -66,7 +66,7 @@ function EventRow({ event }: { event: MercEvent }) {
         {/* Event image */}
         <div className="sm:w-48 shrink-0 relative overflow-hidden hidden sm:block min-h-[120px]">
           <Image
-            src={event.image ?? '/images/merc-events.jpg'}
+            src={event.image ?? '/images/venue/merc-events.jpg'}
             alt={event.image ? event.artist : `Live music at The Merc — ${event.artist}`}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -138,7 +138,7 @@ export default async function EventsPage() {
       <div className="relative bg-merc-surface border-b border-merc-border overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/merc-events.jpg"
+            src="/images/venue/merc-events.jpg"
             alt=""
             fill
             className="object-cover object-top opacity-20"

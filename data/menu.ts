@@ -42,7 +42,7 @@ export const menuSections: MenuSection[] = [
     name: 'Pizza',
     icon: '🍕',
     description: 'Award-winning pizza made fresh. Cauliflower crust available.',
-    heroImage: '/images/menu-pizza.jpg',
+    heroImage: '/images/menu/menu-pizza.jpg',
     categories: [
       {
         id: 'pizza-build-your-own',
@@ -224,7 +224,7 @@ export const menuSections: MenuSection[] = [
     name: 'Burgers',
     icon: '🍔',
     description: 'Award-winning Smoke & Soak burgers — smoked low and slow, soaked in herbs and spices, finished with a quick sear.',
-    heroImage: '/images/menu-burgers.jpg',
+    heroImage: '/images/menu/menu-burgers.jpg',
     categories: [
       {
         id: 'smoke-and-soak-burgers',
@@ -323,7 +323,7 @@ export const menuSections: MenuSection[] = [
     name: 'Good Eats',
     icon: '🍽️',
     description: 'Starters, sandwiches, and more. Something for everyone.',
-    heroImage: '/images/menu-good-eats.jpg',
+    heroImage: '/images/menu/menu-good-eats.jpg',
     categories: [
       {
         id: 'good-eats-breakfast',
@@ -559,7 +559,7 @@ export const menuSections: MenuSection[] = [
     icon: '☕',
     description:
       'Dakota Joe Coffee Co. served fresh every morning. The coffee bar brings a warm, welcoming vibe to The Merc.',
-    heroImage: '/images/merc-interior-sign.jpg',
+    heroImage: '/images/venue/merc-interior-sign.jpg',
     categories: [
       {
         id: 'coffee-drinks',
@@ -780,7 +780,7 @@ export const menuSections: MenuSection[] = [
     icon: '🍺',
     description:
       'Craft beers on tap, cocktails, and a full selection of liquors.',
-    heroImage: '/images/menu-drinks.jpg',
+    heroImage: '/images/menu/menu-drinks.jpg',
     categories: [
       {
         id: 'draft-beer',
@@ -837,7 +837,7 @@ export const menuFeatures = [
     title: 'Pizza',
     subtitle: 'Award-Winning',
     description: 'Handcrafted pies with fresh toppings. Cauliflower crust available.',
-    image: '/images/menu-pizza.jpg',
+    image: '/images/menu/menu-pizza.jpg',
     href: '/menu?tab=pizza',
     accentColor: '#C4842A',
   },
@@ -846,7 +846,7 @@ export const menuFeatures = [
     title: 'Burgers',
     subtitle: 'Built Right',
     description: 'Juicy, award-winning burgers made from quality ingredients.',
-    image: '/images/menu-burgers.jpg',
+    image: '/images/menu/menu-burgers.jpg',
     href: '/menu?tab=burgers',
     accentColor: '#9B3A2E',
   },
@@ -855,7 +855,7 @@ export const menuFeatures = [
     title: 'Good Eats',
     subtitle: 'More to Love',
     description: 'Starters, sandwiches, and daily specials worth coming back for.',
-    image: '/images/menu-good-eats.jpg',
+    image: '/images/menu/menu-good-eats.jpg',
     href: '/menu?tab=good-eats',
     accentColor: '#5A7A3A',
   },
@@ -864,7 +864,7 @@ export const menuFeatures = [
     title: 'Coffee',
     subtitle: 'Dakota Joe',
     description: 'Premium coffee from Dakota Joe Coffee Co. served all morning.',
-    image: '/images/menu-coffee.jpg',
+    image: '/images/menu/menu-coffee.jpg',
     href: '/menu?tab=coffee',
     accentColor: '#6B4423',
   },
@@ -873,7 +873,7 @@ export const menuFeatures = [
     title: 'Drinks',
     subtitle: 'Craft & Cocktails',
     description: 'Rotating craft beers, cocktails, and a full liquor selection.',
-    image: '/images/menu-drinks.jpg',
+    image: '/images/menu/menu-drinks.jpg',
     href: '/menu?tab=drinks',
     accentColor: '#2A5C8A',
   },
