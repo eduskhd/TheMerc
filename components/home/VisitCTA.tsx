@@ -14,7 +14,7 @@ export default function VisitCTA() {
       {/* Background image — community night */}
       <div className="absolute inset-0 opacity-20">
         <Image
-          src="/images/merc-community.jpg"
+          src="/images/venue/merc-community.jpg"
           alt=""
           fill
           className="object-cover object-center"

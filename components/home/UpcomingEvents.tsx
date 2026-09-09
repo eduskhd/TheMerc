@@ -36,7 +36,7 @@ function EventCard({ event }: { event: MercEvent }) {
       {/* Event Image */}
       <div className="w-24 sm:w-28 shrink-0 relative overflow-hidden">
         <Image
-          src={event.image ?? '/images/merc-events.jpg'}
+          src={event.image ?? '/images/venue/merc-events.jpg'}
           alt={event.image ? event.artist : `Live music at The Merc`}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"

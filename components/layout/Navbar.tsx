@@ -5,15 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import OrderOnlineButton from '@/components/ui/OrderOnlineButton'
-
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/menu', label: 'Menu' },
-  { href: '/events', label: 'Events' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/about', label: 'About' },
-  { href: '/visit', label: 'Visit' },
-]
+import { navLinks } from '@/config/navigation'
 
 export default function Navbar() {
   const pathname = usePathname()

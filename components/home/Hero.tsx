@@ -13,7 +13,7 @@ export default function Hero() {
       {/* Hero background — outdoor concert at The Merc at twilight */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-bg.jpg"
+          src="/images/hero/hero-bg.jpg"
           alt="Live music night at The Merc — Flandreau, South Dakota"
           fill
           priority

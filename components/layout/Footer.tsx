@@ -3,14 +3,7 @@ import { MapPin, Phone, Instagram, Facebook, Star, ExternalLink } from 'lucide-r
 import { business } from '@/data/business'
 import { socials } from '@/data/socials'
 import TikTokIcon from '@/components/ui/TikTokIcon'
-
-const navLinks = [
-  { href: '/menu', label: 'Menu' },
-  { href: '/events', label: 'Events & Music' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/about', label: 'About' },
-  { href: '/visit', label: 'Visit Us' },
-]
+import { footerNavLinks as navLinks } from '@/config/navigation'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
