@@ -4,6 +4,40 @@ All significant changes to this project are documented here. Ordered most-recent
 
 ---
 
+## 2026-09-13 — Complete Visual Redesign: Warm Modern Gastropub
+
+### Design Direction
+Full redesign replacing the cool-charcoal palette with a warm rich brown-black + amber gold + cream system ("Warm Modern Gastropub"). Goal: more joyful, energetic, and inviting — less dark-mode app, more neighbourhood gastropub.
+
+### Design Tokens (`tailwind.config.ts`, `app/globals.css`)
+- **New color palette** — warm brown-black bases (`#181410` dark, `#221C16` surface, `#2C2418` card), amber gold (`#D4943A` primary, `#F0A830` light, `#9A6520` dark), cream (`#F5EFE0`). All merc-border values now amber-tinted (`#3D3220`).
+- **New `display-hero` class** — `clamp(3.5rem, 10vw, 8.5rem)` — dramatically larger than old `display-xl` for hero headings
+- **Gradient buttons** — `btn-primary` uses `linear-gradient(135deg, amber → amber-light)` with lift-and-glow on hover
+- **New shadows** — `warm`, `warm-lg`, `warm-xl`, `glow` (amber-tinted depth shadows)
+- **New ambient decorators** — `bg-amber-glow`, amber gradient accent lines (h-px top/bottom of sections)
+- **New animations** — `glow-pulse`, `slide-right`, `fade-up-slow` in keyframes + Tailwind animation utilities
+
+### Layout Components
+- **`Navbar`** — animated amber underline on active nav links; `Flandreau · SD` subtitle under wordmark; warmer scroll shadow; mobile menu has amber left-border indicator for active page
+- **`MobileBottomBar`** — converted to `'use client'` with `usePathname()` active state; added Home nav item; amber top-border indicator per active page; `aria-current="page"` on active items
+- **`QuickInfo`** — warm gradient background; amber accent lines top/bottom; improved grid layout with Open/Closed badge, Hours, Location, Phone, and Directions + Order Online CTA
+
+### Home Sections
+- **`Hero`** — `display-hero` heading (massive), warm amber radial glow atmosphere bottom-left, vignette sides, CTAs reordered (Order Online primary), feature pills with `backdrop-blur-sm`
+- **`Welcome`** — warm gradient background (`#181410 → #221C16`), amber radial glow accent, pillar icon cards with amber hover state and glow
+- **`FoodDrink`** — fixed hardcoded `#C4842A` pizza accent → `#D4943A` (new amber token)
+- `DakotaJoe`, `UpcomingEvents`, `SocialFollow`, `VisitCTA`, `Footer` — verified use correct new tokens throughout
+
+### Inner Pages
+- **Page headers** (Menu, Events, Gallery, About, Visit) — replaced flat `bg-merc-surface` with warm gradient (`#1A1510 → #221C16`), added amber gradient accent lines top/bottom, added radial amber glow, semi-transparent image overlays now warmer
+- **About** — fixed `#C4842A` → `#D4943A` in pillar accent and radial gradient decoration; hero image overlay now uses warm brown gradient
+
+### Build
+- Zero TypeScript errors, zero ESLint warnings
+- All 13 pages/routes compile clean
+
+---
+
 ## 2026-09-13 — Professional Audit: Accessibility, Security & Skills System
 
 ### Security

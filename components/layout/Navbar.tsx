@@ -13,12 +13,11 @@ export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 60)
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileOpen(false)
   }, [pathname])
@@ -26,10 +25,10 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
           isScrolled || isMobileOpen
-            ? 'bg-merc-black/95 backdrop-blur-md border-b border-merc-border shadow-lg'
-            : 'bg-gradient-to-b from-black/60 to-transparent'
+            ? 'bg-merc-black/97 backdrop-blur-xl border-b border-merc-border shadow-[0_4px_24px_rgba(0,0,0,0.5)]'
+            : 'bg-gradient-to-b from-merc-black/70 to-transparent'
         }`}
         role="banner"
       >
@@ -37,7 +36,7 @@ export default function Navbar() {
           className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 lg:h-20"
           aria-label="Main navigation"
         >
-          {/* Logo */}
+          {/* Logo — stronger wordmark */}
           <Link
             href="/"
             className="flex-shrink-0 group"
@@ -45,17 +44,17 @@ export default function Navbar() {
           >
             <span
               className="font-display text-xl lg:text-2xl font-bold tracking-tight text-merc-cream group-hover:text-amber-merc transition-colors duration-200"
-              style={{ fontFamily: 'var(--font-playfair)' }}
+              style={{ fontFamily: 'var(--font-playfair)', letterSpacing: '-0.02em' }}
             >
               THE MERC
             </span>
-            <span className="block text-[10px] tracking-[0.2em] uppercase text-merc-muted font-body -mt-0.5">
-              Flandreau, SD
+            <span className="block text-[9px] tracking-[0.25em] uppercase text-merc-muted font-body -mt-0.5">
+              Flandreau · SD
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <ul className="hidden lg:flex items-center gap-1" role="list">
+          <ul className="hidden lg:flex items-center gap-0.5" role="list">
             {navLinks.map((link) => {
               const isActive =
                 link.href === '/'
@@ -65,14 +64,22 @@ export default function Navbar() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`px-4 py-2 text-sm font-medium tracking-wide uppercase transition-colors duration-200 rounded-sm ${
+                    className={`relative px-4 py-2 text-xs font-bold tracking-[0.12em] uppercase transition-colors duration-200 rounded-sm group ${
                       isActive
                         ? 'text-amber-merc'
-                        : 'text-merc-cream/80 hover:text-merc-cream'
+                        : 'text-merc-cream/70 hover:text-merc-cream'
                     }`}
                     aria-current={isActive ? 'page' : undefined}
                   >
                     {link.label}
+                    {/* Active underline indicator */}
+                    <span
+                      className={`absolute bottom-0 left-4 right-4 h-0.5 rounded-full transition-all duration-200 ${
+                        isActive
+                          ? 'bg-amber-merc scale-x-100 opacity-100'
+                          : 'bg-amber-merc scale-x-0 opacity-0 group-hover:scale-x-50 group-hover:opacity-40'
+                      }`}
+                    />
                   </Link>
                 </li>
               )
@@ -91,15 +98,15 @@ export default function Navbar() {
             aria-expanded={isMobileOpen}
             aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
           >
-            {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </nav>
 
         {/* Mobile Menu Dropdown */}
         {isMobileOpen && (
-          <div className="lg:hidden bg-merc-black/98 border-t border-merc-border">
+          <div className="lg:hidden bg-merc-black border-t border-merc-border">
             <nav aria-label="Mobile navigation">
-              <ul className="px-4 py-4 space-y-1" role="list">
+              <ul className="px-4 py-3 space-y-0.5" role="list">
                 {navLinks.map((link) => {
                   const isActive =
                     link.href === '/'
@@ -109,10 +116,10 @@ export default function Navbar() {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className={`block px-4 py-3 text-base font-medium tracking-wide uppercase rounded-sm transition-colors ${
+                        className={`flex items-center gap-3 px-4 py-3 text-sm font-bold tracking-wider uppercase rounded-sm transition-colors ${
                           isActive
-                            ? 'text-amber-merc bg-merc-surface'
-                            : 'text-merc-cream/80 hover:text-merc-cream hover:bg-merc-surface'
+                            ? 'text-amber-merc bg-amber-merc/10 border-l-2 border-amber-merc pl-3'
+                            : 'text-merc-cream/70 hover:text-merc-cream hover:bg-merc-surface'
                         }`}
                         aria-current={isActive ? 'page' : undefined}
                       >
@@ -122,7 +129,7 @@ export default function Navbar() {
                   )
                 })}
               </ul>
-              <div className="px-4 pb-6 pt-2">
+              <div className="px-4 pb-6 pt-3 border-t border-merc-border mt-1">
                 <OrderOnlineButton variant="full" />
               </div>
             </nav>

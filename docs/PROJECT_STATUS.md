@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-09-13  
 **Build status:** ✅ PASS (TypeScript clean, 0 errors, 13 pages)  
-**Overall:** Production-ready MVP. Blocked on client-provided Square URL.
+**Overall:** Production-ready MVP. Complete visual redesign applied ("Warm Modern Gastropub"). Blocked on client-provided Square URL.
 
 ---
 

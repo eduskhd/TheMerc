@@ -135,17 +135,20 @@ export default async function EventsPage() {
     <div className="pt-20 min-h-screen bg-merc-dark">
 
       {/* Hero */}
-      <div className="relative bg-merc-surface border-b border-merc-border overflow-hidden">
+      <div className="relative border-b border-merc-border overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A1510 0%, #221C16 100%)' }}>
+        {/* Amber glow */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-merc/40 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 20% 50%, rgba(212,148,58,0.08) 0%, transparent 60%)' }} aria-hidden="true" />
         <div className="absolute inset-0">
           <Image
             src="/images/venue/merc-events.jpg"
             alt=""
             fill
-            className="object-cover object-top opacity-20"
+            className="object-cover object-top opacity-15"
             sizes="100vw"
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-merc-surface/70" aria-hidden="true" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(26,21,16,0.95) 0%, rgba(26,21,16,0.7) 100%)' }} aria-hidden="true" />
         </div>
         <div className="relative py-16 px-4 sm:px-6 max-w-7xl mx-auto">
           <SectionHeader
@@ -155,6 +158,7 @@ export default async function EventsPage() {
             subtitle="From local live music to community trivia nights — something's always happening at The Merc."
           />
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-merc/20 to-transparent" aria-hidden="true" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">

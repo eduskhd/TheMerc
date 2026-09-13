@@ -12,7 +12,7 @@ const menuFeatures = [
     image: '/images/menu/menu-pizza.jpg',
     imageAlt: 'BBQ pizza from The Merc — loaded with toppings',
     href: '/menu?tab=pizza',
-    accentColor: '#C4842A',
+    accentColor: '#D4943A',
     span: 'sm:col-span-2 lg:col-span-1',
   },
   {

@@ -25,7 +25,7 @@ const pillars = [
     title: 'Food',
     description:
       'Award-winning pizza with a cauliflower crust option. Handcrafted burgers. Daily specials. Breakfast and lunch through dinner.',
-    color: '#C4842A',
+    color: '#D4943A',
   },
   {
     icon: Music,
@@ -48,7 +48,9 @@ export default function AboutPage() {
     <div className="pt-20 min-h-screen bg-merc-dark">
 
       {/* Hero Section */}
-      <div className="relative bg-merc-surface border-b border-merc-border overflow-hidden">
+      <div className="relative border-b border-merc-border overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A1510 0%, #221C16 100%)' }}>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-merc/40 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 10% 50%, rgba(212,148,58,0.08) 0%, transparent 55%)' }} aria-hidden="true" />
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px]">
           <div className="py-16 px-4 sm:px-6 lg:px-12 flex flex-col justify-center">
             <SectionHeader
@@ -70,7 +72,7 @@ export default function AboutPage() {
               sizes="50vw"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-merc-surface via-merc-surface/30 to-transparent" aria-hidden="true" />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(26,21,16,0.95) 30%, rgba(26,21,16,0.3) 70%, transparent 100%)' }} aria-hidden="true" />
           </div>
         </div>
       </div>
@@ -193,7 +195,7 @@ export default function AboutPage() {
         <div className="relative bg-merc-surface border border-merc-border rounded-sm p-8 lg:p-12 mb-12 overflow-hidden">
           <div
             className="absolute top-0 right-0 w-64 h-64 opacity-5"
-            style={{ background: 'radial-gradient(circle, #C4842A 0%, transparent 70%)' }}
+            style={{ background: 'radial-gradient(circle, #D4943A 0%, transparent 70%)' }}
             aria-hidden="true"
           />
           <div className="relative max-w-2xl">

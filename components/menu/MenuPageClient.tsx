@@ -35,8 +35,10 @@ export default function MenuPageClient() {
     <div className="pt-20 min-h-screen bg-merc-dark">
 
       {/* Page Header */}
-      <div className="bg-merc-surface border-b border-merc-border py-12 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
+      <div className="relative border-b border-merc-border py-12 px-4 sm:px-6 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A1510 0%, #221C16 100%)' }}>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-merc/40 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 70% 50%, rgba(212,148,58,0.08) 0%, transparent 60%)' }} aria-hidden="true" />
+        <div className="max-w-7xl mx-auto relative">
           <SectionHeader
             as="h1"
             label="The Merc"
@@ -47,6 +49,7 @@ export default function MenuPageClient() {
             <OrderOnlineButton variant="full" />
           </div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-merc/20 to-transparent" aria-hidden="true" />
       </div>
 
       {/* Tab Navigation */}

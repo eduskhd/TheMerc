@@ -14,9 +14,17 @@ const pillars = [
 export default function Welcome() {
   return (
     <section
-      className="py-section bg-merc-dark"
+      className="py-section relative overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, #181410 0%, #1E1812 60%, #221C16 100%)' }}
       aria-labelledby="welcome-heading"
     >
+      {/* Warm amber glow — left side atmospheric */}
+      <div
+        className="absolute left-0 top-1/2 -translate-y-1/2 w-[40vw] h-[80%] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 0% 50%, rgba(212,148,58,0.07) 0%, transparent 65%)' }}
+        aria-hidden="true"
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
@@ -28,7 +36,7 @@ export default function Welcome() {
               title="Your Spot in Flandreau"
             />
 
-            <div className="space-y-4 mt-6 text-merc-cream/70 leading-relaxed">
+            <div className="space-y-4 mt-6 text-merc-cream/65 leading-relaxed text-sm sm:text-base">
               <p>
                 The Merc is what happens when a coffee house and a gastropub decide
                 to share the same roof — and somehow, it just works. Walk in for
@@ -50,14 +58,15 @@ export default function Welcome() {
             </div>
 
             {/* Pillar icons */}
-            <div className="flex flex-wrap gap-3 mt-8" aria-label="What we offer">
+            <div className="flex flex-wrap gap-2.5 mt-8" aria-label="What we offer">
               {pillars.map((p) => (
                 <div
                   key={p.label}
-                  className="flex items-center gap-2 px-3 py-2 bg-merc-surface border border-merc-border rounded-sm"
+                  className="flex items-center gap-2 px-3.5 py-2 border border-merc-border rounded-sm transition-all duration-200 hover:border-amber-merc/40 hover:bg-amber-merc/5 group cursor-default"
+                  style={{ background: 'rgba(34,28,22,0.8)' }}
                 >
-                  <p.icon size={14} className="text-amber-merc" aria-hidden="true" />
-                  <span className="text-xs font-semibold tracking-widest uppercase text-merc-muted">
+                  <p.icon size={14} className="text-amber-merc group-hover:text-amber-light transition-colors" aria-hidden="true" />
+                  <span className="text-[10px] font-bold tracking-[0.15em] uppercase text-merc-muted group-hover:text-merc-cream/80 transition-colors">
                     {p.label}
                   </span>
                 </div>
@@ -77,6 +86,7 @@ export default function Welcome() {
                   className="object-cover object-center hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-merc-black/30 to-transparent" aria-hidden="true" />
               </div>
 
               {/* Cocktail */}
@@ -102,9 +112,13 @@ export default function Welcome() {
               </div>
             </div>
 
-            {/* Decorative accent */}
+            {/* Decorative amber corner accent */}
             <div
-              className="absolute -bottom-4 -right-4 w-24 h-24 border border-amber-merc/20 rounded-sm -z-10"
+              className="absolute -bottom-4 -right-4 w-20 h-20 border border-amber-merc/25 rounded-sm -z-10"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute -top-3 -left-3 w-12 h-12 border border-merc-border rounded-sm -z-10"
               aria-hidden="true"
             />
           </div>
