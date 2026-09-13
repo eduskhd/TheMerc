@@ -42,5 +42,12 @@ tsconfig.tsbuildinfo
 .claude/skills/playwright/package-lock.json
 .claude/skills/frontend-visual-qa/audit-output/
 
+# QA screenshots taken at project root
+/*.png
+/*.jpg
+/screenshot-*.png
+/redesign-*.png
+/merc-*.png
+
 # Sanity Studio cache
 studio/.sanity/
