@@ -84,7 +84,7 @@ export default function VisitPage() {
                         className={`flex justify-between items-center py-1.5 px-2 rounded-sm text-sm ${
                           isToday ? 'bg-amber-merc/10 border border-amber-merc/20' : ''
                         }`}
-                        aria-current={isToday ? 'true' : undefined}
+                        aria-current={isToday ? 'date' : undefined}
                       >
                         <span className={`font-medium w-28 ${isToday ? 'text-amber-merc' : 'text-merc-muted'}`}>
                           {h.day}

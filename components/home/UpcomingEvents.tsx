@@ -146,6 +146,7 @@ export default function UpcomingEvents() {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
           <SectionHeader
+            id="events-heading"
             label="Live at The Merc"
             title="Upcoming Events"
             subtitle="Music, community, and good times. Check out what's coming up."

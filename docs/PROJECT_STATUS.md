@@ -1,6 +1,6 @@
 # Project Status — The Merc Website
 
-**Last updated:** 2026-09-08  
+**Last updated:** 2026-09-13  
 **Build status:** ✅ PASS (TypeScript clean, 0 errors, 13 pages)  
 **Overall:** Production-ready MVP. Blocked on client-provided Square URL.
 
@@ -31,7 +31,7 @@
 | Live Open/Closed status (Central Time) | ✅ Done | — |
 | SEO metadata (OG, Twitter cards) | ✅ Done | — |
 | JSON-LD structured data | ✅ Done | — |
-| Security HTTP headers (5) | ✅ Done | — |
+| Security HTTP headers (6) | ✅ Done | — |
 | Favicon (SVG + ICO) | ✅ Done | — |
 | Google Maps embed | ✅ Done | — |
 | Social media links | ✅ Done | — |
@@ -86,4 +86,7 @@
 | Console warnings (runtime) | 0 |
 | Horizontal scroll (any viewport) | Fixed ✅ |
 | npm audit (prod runtime) | 0 vulnerabilities |
-| npm audit (build-time deps) | 4 (HIGH: js-yaml, postcss; MOD: smol-toml, uuid) — non-exploitable, see KNOWN_ISSUES.md |
+| npm audit (build-time deps) | 16 (3 HIGH, 13 MOD) — all build-time only, non-exploitable at runtime. See KNOWN_ISSUES.md ISSUE-002 |
+| Broken aria-labelledby refs | Fixed ✅ (RESOLVED-005) |
+| Invalid aria-current="true" | Fixed ✅ (RESOLVED-006) |
+| HSTS header | Fixed ✅ (RESOLVED-007) |

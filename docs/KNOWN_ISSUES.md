@@ -1,6 +1,6 @@
 # Known Issues — The Merc Website
 
-**Last updated:** 2026-09-08
+**Last updated:** 2026-09-13
 
 Issues are ordered by severity. Update this file when issues are resolved or discovered.
 
@@ -26,32 +26,36 @@ None. Button is visible and functional but destination is broken.
 
 ---
 
-### MEDIUM — npm Audit: 4 Vulnerabilities in Build-Time Dependencies
+### MEDIUM — npm Audit: Vulnerabilities in Sanity CLI / Next.js Build-Time Dependencies
 
 **ID:** ISSUE-002  
 **Severity:** Medium (build tooling only — NOT production runtime)  
 **Status:** Open — deferred (requires breaking changes)  
-**Affects:** Build process only; no production runtime risk
+**Affects:** Build process only; no production runtime risk  
+**Last audited:** 2026-09-13
 
 **Description:**  
-`npm audit` reports 4 vulnerabilities in transitive build-time dependencies:
+`npm audit` reports 16 vulnerabilities (3 high, 13 moderate) in transitive build-time dependencies. The count has grown as new CVEs are published against the same packages; the root cause is unchanged.
 
-| Package | Severity | Path | CVE |
+Key vulnerable packages and their path:
+
+| Package | Severity | Path | Notes |
 |---|---|---|---|
-| `js-yaml` | HIGH | `@sanity/cli` → ... → `js-yaml` | Arbitrary code execution via malicious YAML |
-| `postcss` | HIGH | `next` → internal `postcss` | RegExp denial of service |
-| `smol-toml` | MODERATE | `@sanity/cli` → ... → `smol-toml` | — |
-| `uuid` | MODERATE | `@sanity/cli` → ... → `uuid` | — |
+| `js-yaml` | HIGH | `@sanity/cli` → `@vercel/frameworks` → `js-yaml` | Prototype pollution / DoS in YAML parsing |
+| `postcss` | HIGH | `next` (internal build toolchain) | CSS parser XSS / path traversal in sourceMappingURL |
+| `smol-toml` | HIGH | `@sanity/cli` → `@vercel/frameworks` → `smol-toml` | DoS via malformed TOML |
+| `adm-zip` | MODERATE | `@sanity/cli` → `@sanity/workbench-cli` → `adm-zip` | Symlink extraction |
+| `uuid` | MODERATE | `@sanity/cli` → `typeid-js` → `uuid` | Buffer bounds |
 
-All 4 are in the `@sanity/cli` or Next.js internal build toolchain. They are NOT included in the production JavaScript bundle served to users. A visitor to the site cannot trigger these vulnerabilities.
+All vulnerable packages are in the Sanity Studio CLI chain or Next.js internal build tooling. **None are included in the production JavaScript bundle** served to browser visitors. A visitor to themercsd.com cannot trigger these vulnerabilities.
 
 **Fix options:**
-- `js-yaml` / `smol-toml` / `uuid`: Would require downgrading `sanity` to v5 (breaking — Sanity v6 is installed)
-- `postcss`: Would require upgrading to Next.js 16 beta (breaking — not stable)
+- `js-yaml` / `smol-toml` / `uuid` / `adm-zip`: Requires downgrading `sanity` to v5 (breaking — Sanity v6 is installed)
+- `postcss`: Requires upgrading to Next.js 16 stable (not yet released at time of writing)
 
-**Decision:** Deferred. Document and revisit when Next.js 16 stable ships or Sanity CLI updates its sub-dependencies.
+**Decision:** Deferred. Revisit when Next.js 16 stable ships or Sanity CLI updates its sub-dependencies.
 
-**Verification:** Run `npm audit --omit=dev` to confirm 0 production runtime vulnerabilities.
+**Verification:** `npm audit --omit=dev` returns the same list because `sanity` is in `dependencies` (not `devDependencies`). However, the Sanity CLI toolchain runs only during `sanity` studio CLI commands, not when serving the Next.js app. Production runtime exposure is zero.
 
 ---
 
@@ -138,6 +142,20 @@ The Google Reviews URL links to a Google Maps search for The Merc rather than a 
 
 ---
 
+### LOW — Dead Code: PlaceholderImage Component
+
+**ID:** ISSUE-008  
+**Severity:** Low (code quality)  
+**Status:** Open — pending manual deletion  
+**Affects:** Codebase only; no runtime impact
+
+**Description:**  
+`components/ui/PlaceholderImage.tsx` is defined but never imported or used anywhere in the codebase. It was scaffolded as a fallback for images before real photos were available.
+
+**Fix:** Delete `components/ui/PlaceholderImage.tsx`. Verify no imports before deleting.
+
+---
+
 ## Resolved Issues
 
 | ID | Description | Resolved | Fix |
@@ -146,3 +164,6 @@ The Google Reviews URL links to a Google Maps search for The Merc rather than a 
 | RESOLVED-002 | favicon.ico 404 on every page | 2026-09-08 | Created `public/favicon.ico` + `public/favicon.svg`; updated layout.tsx metadata |
 | RESOLVED-003 | Next.js scroll-behavior warning in console | 2026-09-08 | Added `data-scroll-behavior="smooth"` to `<html>` in layout.tsx |
 | RESOLVED-004 | Google Reviews URL was broken placeholder | 2026-09-08 | Replaced with Google Maps search URL that shows The Merc's business card |
+| RESOLVED-005 | Broken `aria-labelledby` references in home sections | 2026-09-13 | Added `id` prop to `SectionHeader`; passed `id` in Welcome, FoodDrink, UpcomingEvents |
+| RESOLVED-006 | Invalid `aria-current="true"` on hours table | 2026-09-13 | Changed to `aria-current="date"` in visit/page.tsx |
+| RESOLVED-007 | Incomplete security headers (missing HSTS, narrow Permissions-Policy) | 2026-09-13 | Added HSTS (1yr), expanded Permissions-Policy to cover payment, usb, bluetooth, serial, hid |

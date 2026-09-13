@@ -70,6 +70,7 @@ export default function FoodDrink() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <SectionHeader
+            id="food-drink-heading"
             label="Food & Drink"
             title="What's on the Table"
             subtitle="From morning coffee to late-night cocktails — there's always something good at The Merc."

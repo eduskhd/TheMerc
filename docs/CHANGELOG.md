@@ -4,6 +4,31 @@ All significant changes to this project are documented here. Ordered most-recent
 
 ---
 
+## 2026-09-13 — Professional Audit: Accessibility, Security & Skills System
+
+### Security
+- **Added HSTS header** — `Strict-Transport-Security: max-age=31536000; includeSubDomains` in `next.config.ts` (was missing)
+- **Expanded Permissions-Policy** — added `payment=(), usb=(), bluetooth=(), serial=(), hid=()` to the existing deny list (was only camera, microphone, geolocation)
+- Verified API stubs return 503 correctly when not configured — no accidental exposure
+
+### Accessibility (WCAG 2.1 AA fixes)
+- **Fixed broken `aria-labelledby` references** — three home page sections (`Welcome`, `FoodDrink`, `UpcomingEvents`) referenced heading IDs (`welcome-heading`, `food-drink-heading`, `events-heading`) that were never rendered to the DOM. Root cause: `SectionHeader` component lacked an `id` prop. Fixed by adding `id?: string` to `SectionHeader` and passing the correct IDs from each section.
+- **Fixed invalid `aria-current="true"`** — `app/visit/page.tsx` hours table used the string `"true"` as an `aria-current` value. The correct WAI-ARIA value for the current calendar row is `"date"`. Fixed.
+
+### Code Quality
+- Identified dead code: `components/ui/PlaceholderImage.tsx` is never imported. Documented as ISSUE-008 in `KNOWN_ISSUES.md`.
+
+### Tooling
+- Created Claude Code skills system (`.claude/skills/`) with 4 new project skills: `project-qa`, `project-security`, `production-readiness`, `dependency-security`
+- Updated `CLAUDE.md` with Skills Workflow trigger table
+- Created `docs/CLAUDE_SKILLS.md` — full documentation for all 7 skills (3 global + 4 project)
+
+### Documentation
+- Updated `docs/KNOWN_ISSUES.md`: corrected npm audit count (4 → 16; same root packages, more CVEs published); added ISSUE-008 (dead code); added RESOLVED-005/006/007
+- Updated last-updated dates throughout docs
+
+---
+
 ## 2026-09-08 — Professional Audit & Documentation System
 
 ### Security

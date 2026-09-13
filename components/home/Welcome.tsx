@@ -23,6 +23,7 @@ export default function Welcome() {
           {/* Text Side */}
           <div>
             <SectionHeader
+              id="welcome-heading"
               label="Welcome"
               title="Your Spot in Flandreau"
             />

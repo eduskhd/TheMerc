@@ -5,6 +5,7 @@ interface SectionHeaderProps {
   centered?: boolean
   light?: boolean
   as?: 'h1' | 'h2'
+  id?: string
 }
 
 export default function SectionHeader({
@@ -14,6 +15,7 @@ export default function SectionHeader({
   centered = false,
   light = false,
   as: Tag = 'h2',
+  id,
 }: SectionHeaderProps) {
   return (
     <div className={centered ? 'text-center' : ''}>
@@ -21,6 +23,7 @@ export default function SectionHeader({
         <p className="section-label mb-3">{label}</p>
       )}
       <Tag
+        id={id}
         className={`display-md font-display ${light ? 'text-merc-black' : 'text-merc-cream'}`}
         style={{ fontFamily: 'var(--font-playfair)' }}
       >

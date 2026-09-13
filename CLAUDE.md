@@ -264,6 +264,27 @@ See `docs/DECISIONS.md` for full detail.
 
 ---
 
+## Skills Workflow
+
+Permanent skills are configured in `.claude/skills/`. Full documentation: `docs/CLAUDE_SKILLS.md`.
+
+| Trigger | Skill |
+|---|---|
+| Page, component, or data change | `project-qa` |
+| Frontend redesign or layout change | `frontend-visual-qa` + `frontend-ui` |
+| Auth, headers, env vars, external URLs | `project-security` |
+| New npm dependency added | `dependency-security` |
+| Before any deployment or client demo | `production-readiness` |
+| Browser automation / E2E testing | `playwright` |
+
+Use cascading skills for significant changes:
+- Major feature → `project-qa` → `project-security` if it touches env/API → `production-readiness` if pre-deploy
+- Frontend redesign → `frontend-ui` → `frontend-visual-qa` → `project-qa`
+
+Avoid running all skills after a trivial change. Match scope to change size.
+
+---
+
 ## Documentation
 
 | Document | Purpose |
@@ -274,9 +295,10 @@ See `docs/DECISIONS.md` for full detail.
 | `docs/ROADMAP.md` | Development phases and future plans |
 | `docs/KNOWN_ISSUES.md` | Bugs and known problems |
 | `docs/DECISIONS.md` | Technical decisions and their rationale |
+| `docs/CLAUDE_SKILLS.md` | Active skills, plugins, and workflow map |
 
 ---
 
 > **Maintenance rule:** Whenever a significant change is made to code, architecture, features, dependencies, integrations, configuration, or project status — update the relevant docs before considering the task complete.
 
-**Last updated:** 2026-09-09
+**Last updated:** 2026-09-13
