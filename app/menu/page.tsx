@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 function MenuLoading() {
   return (
     <div className="pt-20 min-h-screen bg-merc-dark flex items-center justify-center">
-      <div className="text-merc-muted text-sm tracking-widest uppercase animate-pulse">
+      <div className="text-merc-muted text-sm tracking-widest uppercase">
         Loading menu…
       </div>
     </div>

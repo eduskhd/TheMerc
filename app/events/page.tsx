@@ -47,7 +47,7 @@ function EventRow({ event }: { event: MercEvent }) {
 
   return (
     <article
-      className="group bg-merc-surface border border-merc-border rounded-sm overflow-hidden hover:border-amber-merc/40 transition-all duration-300"
+      className="group bg-merc-surface border border-merc-border rounded-sm overflow-hidden hover:border-amber-merc/40 transition-colors duration-300"
       aria-label={`${event.artist} — ${dayOfWeek}, ${month} ${day}`}
     >
       <div className="flex flex-col sm:flex-row">
@@ -169,7 +169,7 @@ export default async function EventsPage() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-amber-merc animate-pulse" aria-hidden="true" />
+                  <span className="w-2 h-2 rounded-full bg-amber-merc animate-pulse-dot" aria-hidden="true" />
                   <p className="section-label">Tonight at The Merc</p>
                 </div>
                 {tonightEvents.map((e) => (

@@ -58,7 +58,7 @@ export default function VisitPage() {
                 </div>
                 {openStatus.status === 'open' ? (
                   <span className="badge-open">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse-dot" />
                     Open Now
                   </span>
                 ) : (

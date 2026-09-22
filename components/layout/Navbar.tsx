@@ -75,7 +75,7 @@ export default function Navbar() {
                     {link.label}
                     {/* Active underline indicator */}
                     <span
-                      className={`absolute bottom-0 left-4 right-4 h-0.5 rounded-full transition-all duration-200 ${
+                      className={`absolute bottom-0 left-4 right-4 h-0.5 rounded-full transition-[transform,opacity] duration-200 ${
                         isActive
                           ? 'bg-amber-merc scale-x-100 opacity-100'
                           : 'bg-amber-merc scale-x-0 opacity-0 group-hover:scale-x-50 group-hover:opacity-40'

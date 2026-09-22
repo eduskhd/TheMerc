@@ -62,7 +62,7 @@ export default function Welcome() {
               {pillars.map((p) => (
                 <div
                   key={p.label}
-                  className="flex items-center gap-2 px-3.5 py-2 border border-merc-border rounded-sm transition-all duration-200 hover:border-amber-merc/40 hover:bg-amber-merc/5 group cursor-default"
+                  className="flex items-center gap-2 px-3.5 py-2 border border-merc-border rounded-sm transition-colors duration-200 hover:border-amber-merc/40 hover:bg-amber-merc/5 group cursor-default"
                   style={{ background: 'rgba(34,28,22,0.8)' }}
                 >
                   <p.icon size={14} className="text-amber-merc group-hover:text-amber-light transition-colors" aria-hidden="true" />

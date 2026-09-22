@@ -63,6 +63,7 @@ export default function Hero() {
           </div>
 
           {/* Main heading — dramatically large */}
+
           <h1
             className="display-hero text-merc-cream mb-5 font-display"
             style={{
@@ -72,6 +73,7 @@ export default function Hero() {
           >
             The Merc
           </h1>
+
 
           {/* Tagline */}
           <p

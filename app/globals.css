@@ -340,6 +340,7 @@ h1, h2, h3, h4, h5 {
   50% { opacity: 0.5; transform: scale(0.85); }
 }
 
+.animate-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
 
 .animate-fade-up { animation: fadeUp 0.65s ease-out forwards; }
 .animate-fade-up-slow { animation: fadeUp 0.9s ease-out forwards; }
