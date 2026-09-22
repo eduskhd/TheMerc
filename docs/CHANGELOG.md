@@ -4,6 +4,57 @@ All significant changes to this project are documented here. Ordered most-recent
 
 ---
 
+## 2026-09-22 — Animation System, Accessibility & UX Polish
+
+### Animation (15 plans via `/improve-animations`)
+
+**Performance**
+- Replaced `transition: all` with property-specific transitions on all three button classes (`btn-primary`, `btn-secondary`, `btn-ghost`) and navbar scroll state — eliminates off-GPU property animation on every interaction and every scroll tick
+- Navbar: `transition-all duration-400` → `transition-[background-color,border-color,box-shadow] duration-300`; `duration-400` was a non-existent Tailwind token silently falling back to 150ms
+
+**Accessibility**
+- `prefers-reduced-motion` block replaced from nuclear (`transition-duration: 0.01ms !important` on `*`) to surgical — kills movement and looping animations, preserves color/opacity feedback on all interactive elements
+- All hover `transform: translateY` lifts (buttons, cards) gated behind `@media (hover: hover) and (pointer: fine)` — prevents tap-flash on touch devices
+
+**Motion quality**
+- Mobile menu open/close animated with Framer Motion `AnimatePresence` + `motion.div` — `opacity + y: -8` ease-out 200ms; was a hard-cut
+- `scale(0.97)` press feedback added to all button `:active` states
+- `.card:hover` transition easing `ease` → `var(--ease-out)` (cubic-bezier(0.23, 1, 0.32, 1)) for translateY movement
+- Image hover durations reduced: Welcome `700ms` → `300ms`, FoodDrink/UpcomingEvents/Gallery `500ms` → `300ms`; image scale hovers gated behind `pointer: fine`
+- SocialFollow icon `scale-110` → `scale-105` with pointer gate and explicit `duration-200`
+- Infinite `animate-pulse` removed from Open/Closed indicator dot and Tonight event dot
+
+**Tokens and system**
+- Easing tokens added to `:root`: `--ease-out`, `--ease-in-out`, `--ease-drawer`
+- Duration tokens added to `:root`: `--duration-fast` (150ms), `--duration-base` (200ms), `--duration-slow` (300ms)
+- Duplicate `glowPulse` keyframe reconciled — CSS globals value (28px/0.8) now canonical in `tailwind.config.ts`; dead `shimmer` and `slideRight` keyframes removed
+- Gallery overlay `transition-all` → `transition-colors`
+- `scale(0.96)` added to `fadeUp`/`fadeIn` `from` frames for physical entry feel
+
+### Accessibility Fixes
+- **Skip link focus indicator restored** — `focus:outline-none` removed from skip-to-content link in Navbar; global amber `:focus-visible` ring now applies
+- **Hamburger touch target** — `p-2` (38px) → `p-3` (46px), meeting WCAG 2.5.5 recommended target size
+- **Muted text contrast** — `merc.muted` token `#7A6A50` (~2.8:1) → `#9A8A6A` (~5.9:1 on merc-black); affects nav subtitle, section metadata, hours labels, card metadata throughout
+
+### Typography
+- All button font-size `0.8rem` (12.8px) → `0.875rem` (14px) — `btn-primary`, `btn-secondary`, `btn-ghost`
+- `section-label` `0.7rem` (11.2px) → `0.75rem` (12px)
+
+### UX / Content
+- **Order Online CTA (P0 fix)** — all variants (`navbar`, `mobile`, `full`) now fall back to `tel:+16055730913` link when `NEXT_PUBLIC_SQUARE_ORDER_URL` is empty; no more disabled/greyed-out states or "Coming Soon" block
+- **Out-of-towner value proposition** — VisitCTA now includes a second paragraph addressing road-trip visitors: I-29 proximity, award-winning pizza, live music
+- **Section order** — `VisitCTA` moved before `SocialFollow` in home page; conversion CTA no longer interrupted by social section
+- **VisitCTA background image** — `opacity-20` → `opacity-35`, dark overlay `/80` → `/65`; image now visible at ~12% effective opacity (was ~4%)
+- **JSON-LD `sameAs`** — hardcoded Facebook/Instagram URLs replaced with `socials.ts` references; TikTok added; stays in sync when client updates social URLs
+- **DakotaJoe icon** — `☕` Unicode emoji replaced with `<Coffee />` from Lucide — consistent with the site-wide icon system
+- **Text selection** — `::selection` styled with amber brand tint (`rgba(212, 148, 58, 0.28)`) + cream text
+
+### Build
+- Zero TypeScript errors, zero ESLint warnings
+- All 13 pages/routes compile clean
+
+---
+
 ## 2026-09-13 — Complete Visual Redesign: Warm Modern Gastropub
 
 ### Design Direction
