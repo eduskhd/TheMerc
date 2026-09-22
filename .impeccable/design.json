@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-22T00:00:00Z",
+  "title": "Design System: The Merc",
+  "extensions": {
+    "colorMeta": {
+      "amber": {
+        "role": "primary",
+        "displayName": "Molten Amber",
+        "canonical": "#D4943A",
+        "tonalRamp": ["#160B02", "#321505", "#542510", "#7A4020", "#9A6520", "#C07830", "#D4943A", "#F5C060"]
+      },
+      "amber-light": {
+        "role": "primary",
+        "displayName": "Amber Light",
+        "canonical": "#F0A830",
+        "tonalRamp": ["#200E02", "#3C1C06", "#5E2E10", "#8C4A1A", "#B06022", "#D07C2A", "#F0A830", "#FAC860"]
+      },
+      "amber-dark": {
+        "role": "primary",
+        "displayName": "Amber Dark",
+        "canonical": "#9A6520",
+        "tonalRamp": ["#120A02", "#261405", "#3C200A", "#553012", "#6A4018", "#9A6520", "#C07B2A", "#DCA040"]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Warm Cream",
+        "canonical": "#F5EFE0",
+        "tonalRamp": ["#181410", "#221C16", "#2C2418", "#4A3D2E", "#9A8A6A", "#C8B898", "#E8DFC8", "#F5EFE0"]
+      },
+      "cream-dark": {
+        "role": "neutral",
+        "displayName": "Cream Dark",
+        "canonical": "#E8DFC8",
+        "tonalRamp": ["#181410", "#221C16", "#302618", "#4A3D2C", "#6A5A42", "#9A8A68", "#C8B890", "#E8DFC8"]
+      },
+      "merc-black": {
+        "role": "neutral",
+        "displayName": "Warm Almost-Black",
+        "canonical": "#100E0B",
+        "tonalRamp": ["#070605", "#100E0B", "#181410", "#221C16", "#2C2418", "#3D3220", "#5A4A35", "#9A8A6A"]
+      },
+      "merc-dark": {
+        "role": "neutral",
+        "displayName": "Rich Brown-Black",
+        "canonical": "#181410",
+        "tonalRamp": ["#0A0806", "#100E0B", "#181410", "#221C16", "#2C2418", "#3D3220", "#5A4A35", "#9A8A6A"]
+      },
+      "merc-surface": {
+        "role": "neutral",
+        "displayName": "Warm Surface",
+        "canonical": "#221C16",
+        "tonalRamp": ["#0A0806", "#100E0B", "#181410", "#221C16", "#2C2418", "#4A3D2E", "#6A5A42", "#9A8A6A"]
+      },
+      "merc-card": {
+        "role": "neutral",
+        "displayName": "Card Surface",
+        "canonical": "#2C2418",
+        "tonalRamp": ["#100E0B", "#181410", "#221C16", "#2C2418", "#3D3220", "#5A4A35", "#9A8A6A", "#C8B898"]
+      },
+      "merc-border": {
+        "role": "neutral",
+        "displayName": "Amber-Tinted Border",
+        "canonical": "#3D3220",
+        "tonalRamp": ["#100E0B", "#181410", "#221C16", "#2C2418", "#3D3220", "#5A4A35", "#7A6A50", "#9A8A6A"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Warm Muted Text",
+        "canonical": "#9A8A6A",
+        "tonalRamp": ["#221C16", "#2C2418", "#3D3220", "#5A4A35", "#7A6A50", "#9A8A6A", "#C8B898", "#E8DFC8"]
+      },
+      "red": {
+        "role": "tertiary",
+        "displayName": "Ember Red",
+        "canonical": "#9B3A2E",
+        "tonalRamp": ["#180806", "#300F0A", "#4A1810", "#6A2218", "#9B3A2E", "#C04840", "#E07060", "#F0A098"]
+      },
+      "green": {
+        "role": "tertiary",
+        "displayName": "Forge Green",
+        "canonical": "#3D7A4A",
+        "tonalRamp": ["#081208", "#102010", "#1C3820", "#2C5235", "#3D7A4A", "#5DC877", "#88E898", "#B8F8C8"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Hero Display",
+        "purpose": "Home page hero only — the single most dramatic heading per visit. Compress leading to 0.95 at full size."
+      },
+      "headline": {
+        "displayName": "Page Headline",
+        "purpose": "One per inner page (Menu, Events, Gallery, etc). Fluid from 2.75rem to 6rem."
+      },
+      "title": {
+        "displayName": "Section Title",
+        "purpose": "Home page section headings and inner-page sub-sections. Fluid from 1.5rem to 2.5rem."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Sustained reading copy. Always Inter 400 at 1rem/1.65 line-height. Never Playfair at this scale."
+      },
+      "label": {
+        "displayName": "Section Label",
+        "purpose": "Amber amber eyebrow preceding every Playfair heading. 0.75rem, Inter 700, tracking 0.2em, uppercase."
+      }
+    },
+    "shadows": [
+      {
+        "name": "warm",
+        "value": "0 4px 24px rgba(212, 148, 58, 0.18)",
+        "purpose": "Base ambient glow under featured elements at rest. Subtle separation without drama."
+      },
+      {
+        "name": "warm-lg",
+        "value": "0 8px 48px rgba(212, 148, 58, 0.25)",
+        "purpose": "Hover state on prominent cards and feature tiles."
+      },
+      {
+        "name": "warm-xl",
+        "value": "0 16px 64px rgba(212, 148, 58, 0.3)",
+        "purpose": "Maximum amber glow — reserved for the most prominent interactive states."
+      },
+      {
+        "name": "card",
+        "value": "0 2px 16px rgba(0,0,0,0.5)",
+        "purpose": "Dark structural shadow under cards at rest. Pairs with warm glow on hover."
+      },
+      {
+        "name": "card-hover",
+        "value": "0 12px 40px rgba(0,0,0,0.7)",
+        "purpose": "Deep shadow on card hover, combined with translateY(-5px) for physical lift."
+      },
+      {
+        "name": "button-glow",
+        "value": "0 6px 20px rgba(212, 148, 58, 0.4)",
+        "purpose": "Amber halo under btn-primary on hover. Reinforces the lift with emitted light."
+      },
+      {
+        "name": "glow-pulse-peak",
+        "value": "0 0 28px rgba(212, 148, 58, 0.8)",
+        "purpose": "Peak frame of the glowPulse keyframe animation. Used on featured decorative elements only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Default easing for all translateY/translateX movement — card lifts, button lifts, drawer open. Sharp deceleration = physical feel."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "Symmetric enter/exit for elements that both appear and disappear (modals, full overlays)."
+      },
+      {
+        "name": "ease-drawer",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "Mobile drawer and bottom sheet entry — the snap-in feel of a physical panel sliding into place."
+      },
+      {
+        "name": "duration-fast",
+        "value": "150ms",
+        "purpose": "Micro-interactions: focus ring, color feedback. Anything that should feel instantaneous."
+      },
+      {
+        "name": "duration-base",
+        "value": "200ms",
+        "purpose": "Standard interaction response: button hover lift, nav transitions, mobile menu open/close."
+      },
+      {
+        "name": "duration-slow",
+        "value": "300ms",
+        "purpose": "Spatial movement: card lift, image hover zoom, header scroll transition."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px", "purpose": "Minor grid adjustments — 1-col to 2-col on feature grids." },
+      { "name": "lg", "value": "1024px", "purpose": "Primary breakpoint — desktop nav, multi-column layouts, section padding expansions. The only breakpoint that matters for layout decisions." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The highest-intent action. Amber gradient, near-black text, 2px radius. Lifts on hover (pointer: fine only).",
+      "html": "<button class=\"ds-btn-primary\">Order Online</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem; background: linear-gradient(135deg, var(--color-amber, #D4943A) 0%, var(--color-amber-light, #F0A830) 100%); color: var(--color-black, #100E0B); font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: none; border-radius: 2px; cursor: pointer; box-shadow: 0 2px 0 rgba(0,0,0,0.3); transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; } @media (hover: hover) and (pointer: fine) { .ds-btn-primary:hover { transform: translateY(-2px); background: linear-gradient(135deg, var(--color-amber-light, #F0A830) 0%, #FFB840 100%); box-shadow: 0 6px 20px rgba(212,148,58,0.4), 0 2px 0 rgba(0,0,0,0.3); } } .ds-btn-primary:active { transform: translateY(0) scale(0.97); box-shadow: 0 1px 0 rgba(0,0,0,0.3); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-amber, #D4943A); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Second-tier action. Transparent with cream border, slightly smaller lift than primary.",
+      "html": "<button class=\"ds-btn-secondary\">View Menu</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 2rem; background: transparent; color: var(--color-cream, #F5EFE0); font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: 1.5px solid rgba(245,239,224,0.35); border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease; } @media (hover: hover) and (pointer: fine) { .ds-btn-secondary:hover { transform: translateY(-1px); border-color: rgba(245,239,224,0.75); background: rgba(245,239,224,0.08); } } .ds-btn-secondary:active { transform: scale(0.97); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--color-amber, #D4943A); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Tertiary action. Amber border fills solid amber on hover — a full inversion. Used on dark section backgrounds.",
+      "html": "<button class=\"ds-btn-ghost\">Coffee Menu</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: transparent; color: var(--color-amber, #D4943A); font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: 1.5px solid var(--color-amber, #D4943A); border-radius: 2px; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; } .ds-btn-ghost:hover { background: var(--color-amber, #D4943A); color: var(--color-black, #100E0B); box-shadow: 0 4px 16px rgba(212,148,58,0.3); } .ds-btn-ghost:active { transform: scale(0.97); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--color-amber, #D4943A); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Primary content container for events, gallery items, and feature tiles. Lifts 5px with deep shadow on hover (pointer: fine only).",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-image\" aria-hidden=\"true\"></div><div class=\"ds-card-body\"><p class=\"ds-card-label\">Tonight</p><h3 class=\"ds-card-title\">Live Music</h3><p class=\"ds-card-meta\">Friday · 8:00 PM</p></div></div>",
+      "css": ".ds-card { background: var(--color-card, #2C2418); border: 1px solid var(--color-border, #3D3220); border-radius: 4px; overflow: hidden; transition: transform 0.3s cubic-bezier(0.23,1,0.32,1), box-shadow 0.3s ease, border-color 0.3s ease; box-shadow: 0 2px 16px rgba(0,0,0,0.5); } @media (hover: hover) and (pointer: fine) { .ds-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(0,0,0,0.7); border-color: rgba(212,148,58,0.25); } } .ds-card-image { width: 100%; height: 200px; background: var(--color-surface, #221C16); } .ds-card-body { padding: 1.25rem 1.5rem 1.5rem; } .ds-card-label { font-family: Inter, system-ui, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-amber, #D4943A); margin-bottom: 0.5rem; } .ds-card-title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 700; color: var(--color-text, #F5EFE0); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.5rem; } .ds-card-meta { font-family: Inter, system-ui, sans-serif; font-size: 0.875rem; color: var(--color-text-muted, #9A8A6A); }"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "chip",
+      "refersTo": "card",
+      "description": "Pill-shaped open/closed status indicator. Green tint for open, red tint for closed. No animation on the dot.",
+      "html": "<span class=\"ds-badge ds-badge-open\"><span class=\"ds-badge-dot\" aria-hidden=\"true\"></span>Open Now</span><br><br><span class=\"ds-badge ds-badge-closed\"><span class=\"ds-badge-dot\" aria-hidden=\"true\"></span>Closed</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.3rem 0.875rem; font-family: Inter, system-ui, sans-serif; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 9999px; } .ds-badge-open { background: rgba(61,122,74,0.2); color: #5DC877; border: 1px solid rgba(61,122,74,0.4); } .ds-badge-closed { background: rgba(155,58,46,0.2); color: #E07060; border: 1px solid rgba(155,58,46,0.35); } .ds-badge-dot { width: 6px; height: 6px; border-radius: 9999px; background: currentColor; flex-shrink: 0; }"
+    },
+    {
+      "name": "Section Header",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "The amber eyebrow label + amber gradient divider + Playfair heading — the house section-opener pattern used on every content section.",
+      "html": "<div class=\"ds-section-header\"><p class=\"ds-section-label\">Live Music</p><div class=\"ds-section-divider\"></div><h2 class=\"ds-section-title\">Upcoming Events</h2></div>",
+      "css": ".ds-section-header { display: flex; flex-direction: column; } .ds-section-label { font-family: Inter, system-ui, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-amber, #D4943A); } .ds-section-divider { width: 56px; height: 2px; background: linear-gradient(90deg, var(--color-amber, #D4943A) 0%, var(--color-amber-light, #F0A830) 100%); margin: 1.25rem 0; } .ds-section-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 4.5vw, 4rem); font-weight: 700; color: var(--color-text, #F5EFE0); letter-spacing: -0.02em; line-height: 1.05; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "button-ghost",
+      "description": "Scrolled desktop navbar state — near-black with backdrop blur. Active link in amber with full underline; hover shows half-width amber preview.",
+      "html": "<header class=\"ds-nav-header\"><nav class=\"ds-nav\"><a class=\"ds-nav-wordmark\" href=\"#\"><span class=\"ds-nav-wordmark-main\">THE MERC</span><span class=\"ds-nav-wordmark-sub\">Flandreau · SD</span></a><ul class=\"ds-nav-links\"><li><a class=\"ds-nav-link\" href=\"#\">Menu</a></li><li><a class=\"ds-nav-link ds-nav-link--active\" href=\"#\">Events</a></li><li><a class=\"ds-nav-link\" href=\"#\">Gallery</a></li></ul></nav></header>",
+      "css": ".ds-nav-header { background: rgba(16,14,11,0.97); backdrop-filter: blur(24px); border-bottom: 1px solid var(--color-border, #3D3220); box-shadow: 0 4px 24px rgba(0,0,0,0.5); } .ds-nav { max-width: 80rem; margin: 0 auto; padding: 0 1.5rem; height: 5rem; display: flex; align-items: center; justify-content: space-between; } .ds-nav-wordmark { display: flex; flex-direction: column; text-decoration: none; } .ds-nav-wordmark-main { font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; color: var(--color-cream, #F5EFE0); transition: color 0.2s ease; } .ds-nav-wordmark:hover .ds-nav-wordmark-main { color: var(--color-amber, #D4943A); } .ds-nav-wordmark-sub { font-family: Inter, system-ui, sans-serif; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-text-muted, #9A8A6A); margin-top: -2px; } .ds-nav-links { display: flex; align-items: center; gap: 0.125rem; list-style: none; } .ds-nav-link { position: relative; display: block; padding: 0.5rem 1rem; font-family: Inter, system-ui, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: rgba(245,239,224,0.7); border-radius: 2px; transition: color 0.2s ease; } .ds-nav-link:hover { color: #F5EFE0; } .ds-nav-link--active { color: var(--color-amber, #D4943A); } .ds-nav-link--active::after { content: ''; position: absolute; bottom: 0; left: 1rem; right: 1rem; height: 2px; background: var(--color-amber, #D4943A); border-radius: 9999px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Burnished Hearth",
+    "overview": "The Merc's visual system is built from the materials of a place that has earned its warmth — richly darkened wood, amber firelight, the weight of good food and cold beer. The palette is not warm-for-warm's-sake; it is earned depth. Brown-blacks that hover between espresso and woodsmoke anchor the backgrounds. Amber gold — always in gradient, never flat — carries the brand's energy the way a lit window carries welcome. Cream stands in for white: softer, richer, more honest.\n\nThe typography is deliberately theatrical without being theatrical about it. Playfair Display lands with editorial weight — tight leading, negative tracking, tight-to-the-edge on hero headings — and then steps back entirely to let Inter carry the actual work: labels, captions, buttons, navigation. The pairing is confident: Playfair makes the impression, Inter closes the deal.\n\nMotion in this system is felt, not watched. Interactions respond to the user's hand — a 2px lift on hover, a 3% scale compression on press — without performing for an audience. The goal is tactile credibility, not animation theatre. Every moving thing in this system has a reason to move.",
+    "keyCharacteristics": [
+      "Amber gold earns its place — primary accent on ≤15% of any screen at a time",
+      "Playfair Display for drama; Inter for everything that needs to be read",
+      "Almost-square corners (2px on interactive elements, 4px on containers) — sharp and considered, not cold",
+      "Depth through tonal layering and warm shadows, not flat decoration",
+      "Motion is micro-physical: lifts, compressions, fades — not slides, spins, or bounces"
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Amber is used in one active role at a time: CTA, active state, or accent decoration. Stacking amber text, amber border, and amber glow on the same element dilutes the effect to noise.",
+        "section": "colors"
+      },
+      {
+        "name": "The Warm Floor Rule",
+        "body": "No pure #000000 or #FFFFFF ever appears in this system. The floor is #100E0B; the ceiling is #F5EFE0. Neutrals carry warmth at every level.",
+        "section": "colors"
+      },
+      {
+        "name": "The Display/Body Firewall",
+        "body": "Playfair Display is used exclusively for headings (h1–h5 and the display-* utility classes). Inter handles all UI, labels, buttons, and body copy. A Playfair Display paragraph is a system violation, not a stylistic choice.",
+        "section": "typography"
+      },
+      {
+        "name": "The Size Floor Rule",
+        "body": "No text smaller than 0.75rem (12px) is used for any information — only the badge-* status pill at 0.7rem is the documented exception, where weight and contrast compensate.",
+        "section": "typography"
+      },
+      {
+        "name": "The Single Breakpoint Rule",
+        "body": "Design decisions are made for mobile first, then lg — not for sm, md, xl in sequence. If a layout looks right at 375px and 1280px, it works for everyone in between.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "All elements start flat. Shadows appear only in response to state (hover, elevation, focus), never as static decoration on body copy or plain containers.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Warm Shadow Rule",
+        "body": "No rgba(0,0,0,X) shadows appear without a corresponding amber warm shadow alongside them. The sole exception is card and card-hover (structural dark shadows) which are paired with border-color changes for warmth.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No-Round Rule",
+        "body": "rounded-md (6px), rounded-lg (8px), and above are not used in this system. Anything softer than 4px breaks the sharp, considered character of the brand.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do use rgba(212, 148, 58, X) for all amber-tinted glow shadows — the exact color is the brand signature. Do not substitute with rgba(255, 165, 0, X) or any other orange.",
+      "Do gate all hover transform effects (translateY lifts, scale lifts on images) behind @media (hover: hover) and (pointer: fine) — touch users get no transform flash.",
+      "Do apply the section-label class (amber, Inter, uppercase, wide tracking) as the eyebrow above every Playfair Display section heading.",
+      "Do use var(--ease-out) (cubic-bezier(0.23, 1, 0.32, 1)) for any translateY or translateX movement — the sharp deceleration is the physical feel of the brand.",
+      "Do keep muted (#9A8A6A) as the minimum text color for informational text on dark backgrounds — it meets WCAG AA contrast (~5.9:1 on merc-black).",
+      "Do use transition-property explicitly on all interactive elements — never transition: all, which composites off-GPU and introduces janky scroll-based repaints."
+    ],
+    "donts": [
+      "Don't use rounded-md (6px) or larger on buttons, nav elements, or cards. The house radius is 2px (interactive) and 4px (containers). Rounder shapes break the sharp, considered character.",
+      "Don't add amber text, amber border, and amber glow to the same element simultaneously — amber's power comes from scarcity. One amber role per element.",
+      "Don't use animate-pulse or looping CSS animations on status indicators or decorative dots in the main UI flow. Looping motion is distracting and violates prefers-reduced-motion intent.",
+      "Don't use Playfair Display for body copy, captions, or any text that needs to be sustained reading. Its high contrast and display proportions are designed for display sizes only.",
+      "Don't use transition: all — specify only the properties that actually change (transform, opacity, background, border-color, box-shadow).",
+      "Don't use #7A6A50 (text-subtle) for any information that needs to be read — it is below WCAG AA contrast on dark backgrounds. Restrict it to decorative italic footnotes.",
+      "Don't introduce pure #000000 or #FFFFFF — the warm floor is #100E0B, the warm ceiling is #F5EFE0."
+    ]
+  }
+}
