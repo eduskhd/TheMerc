@@ -24,7 +24,7 @@ export default function QuickInfo() {
             {openStatus.status === 'open' ? (
               <div>
                 <span className="badge-open">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
                   Open Now
                 </span>
                 <p className="text-xs text-merc-muted mt-1.5 font-medium">

@@ -12,7 +12,7 @@ export default function VisitCTA() {
       aria-labelledby="visit-cta-heading"
     >
       {/* Background image — community night */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-35">
         <Image
           src="/images/venue/merc-community.jpg"
           alt=""
@@ -23,7 +23,7 @@ export default function VisitCTA() {
         />
       </div>
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-merc-dark/80" aria-hidden="true" />
+      <div className="absolute inset-0 bg-merc-dark/65" aria-hidden="true" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -39,8 +39,13 @@ export default function VisitCTA() {
             >
               Find Us in<br aria-hidden="true" />Flandreau
             </h2>
-            <p className="text-merc-cream/60 text-base leading-relaxed mb-8 max-w-sm">
+            <p className="text-merc-cream/60 text-base leading-relaxed mb-3 max-w-sm">
               We&apos;re right in the heart of town on E 2nd Ave. Easy to find, hard to leave.
+            </p>
+            <p className="text-merc-cream/45 text-sm leading-relaxed mb-8 max-w-sm">
+              Passing through eastern South Dakota? The Merc is minutes off I-29 —
+              award-winning pizza, craft drinks, and live music on the weekends.
+              Worth the stop.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link

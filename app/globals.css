@@ -35,6 +35,16 @@
   --color-copper: #A05030;
   --color-green: #3D7A4A;
 
+  /* Easing tokens */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Duration tokens */
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+
   /* Spacing */
   --section-padding: 5rem;
   --section-padding-sm: 3rem;
@@ -74,6 +84,12 @@ body {
   outline: 2px solid var(--color-amber);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+/* Text selection */
+::selection {
+  background: rgba(212, 148, 58, 0.28);
+  color: var(--color-cream);
 }
 
 /* Scrollbar styling */
@@ -130,7 +146,7 @@ h1, h2, h3, h4, h5 {
 
 .section-label {
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -149,7 +165,7 @@ h1, h2, h3, h4, h5 {
   background: linear-gradient(135deg, var(--color-amber) 0%, var(--color-amber-light) 100%);
   color: var(--color-black);
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -157,17 +173,25 @@ h1, h2, h3, h4, h5 {
   border: none;
   border-radius: 2px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
   box-shadow: 0 2px 0 rgba(0,0,0,0.3), 0 0 0 rgba(212, 148, 58, 0);
 }
 .btn-primary:hover {
   background: linear-gradient(135deg, var(--color-amber-light) 0%, #FFB840 100%);
-  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(212, 148, 58, 0.4), 0 2px 0 rgba(0,0,0,0.3);
 }
 .btn-primary:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.97);
   box-shadow: 0 1px 0 rgba(0,0,0,0.3);
+}
+.btn-secondary:active {
+  transform: scale(0.97);
+}
+.btn-ghost:active {
+  transform: scale(0.97);
 }
 
 .btn-secondary {
@@ -178,7 +202,7 @@ h1, h2, h3, h4, h5 {
   background: transparent;
   color: var(--color-cream);
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -186,12 +210,14 @@ h1, h2, h3, h4, h5 {
   border: 1.5px solid rgba(245, 239, 224, 0.35);
   border-radius: 2px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 .btn-secondary:hover {
   border-color: rgba(245, 239, 224, 0.75);
   background: rgba(245, 239, 224, 0.08);
-  transform: translateY(-1px);
 }
 
 .btn-ghost {
@@ -202,7 +228,7 @@ h1, h2, h3, h4, h5 {
   background: transparent;
   color: var(--color-amber);
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -210,7 +236,10 @@ h1, h2, h3, h4, h5 {
   border: 1.5px solid var(--color-amber);
   border-radius: 2px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 .btn-ghost:hover {
   background: var(--color-amber);
@@ -227,12 +256,17 @@ h1, h2, h3, h4, h5 {
   border: 1px solid var(--color-border);
   border-radius: 4px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .card:hover {
-  transform: translateY(-5px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
   border-color: rgba(212, 148, 58, 0.25);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-secondary:hover { transform: translateY(-1px); }
+  .card:hover { transform: translateY(-5px); }
 }
 
 /* =============================================================================
@@ -292,13 +326,13 @@ h1, h2, h3, h4, h5 {
 ============================================================================= */
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(28px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes pulse-dot {
@@ -306,15 +340,6 @@ h1, h2, h3, h4, h5 {
   50% { opacity: 0.5; transform: scale(0.85); }
 }
 
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 8px rgba(212, 148, 58, 0.4); }
-  50% { box-shadow: 0 0 28px rgba(212, 148, 58, 0.8); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
 
 .animate-fade-up { animation: fadeUp 0.65s ease-out forwards; }
 .animate-fade-up-slow { animation: fadeUp 0.9s ease-out forwards; }
@@ -327,13 +352,38 @@ h1, h2, h3, h4, h5 {
 .stagger-children > *:nth-child(4) { animation-delay: 300ms; }
 .stagger-children > *:nth-child(5) { animation-delay: 400ms; }
 
-/* Reduce motion */
+/* Reduce motion — surgical: kills movement/loops, preserves color/opacity feedback */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost {
+    transition-property: background, color, border-color, box-shadow, opacity !important;
+  }
+
+  .card {
+    transition-property: box-shadow, border-color, opacity !important;
+  }
+
+  header {
+    transition: none !important;
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .card:hover {
+    transform: none !important;
+  }
+
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-ghost:active {
+    transform: none !important;
   }
 }
 

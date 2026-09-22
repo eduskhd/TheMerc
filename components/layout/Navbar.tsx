@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import OrderOnlineButton from '@/components/ui/OrderOnlineButton'
 import { navLinks } from '@/config/navigation'
+import { AnimatePresence, motion } from 'framer-motion'
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -25,7 +26,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,box-shadow] duration-300 ${
           isScrolled || isMobileOpen
             ? 'bg-merc-black/97 backdrop-blur-xl border-b border-merc-border shadow-[0_4px_24px_rgba(0,0,0,0.5)]'
             : 'bg-gradient-to-b from-merc-black/70 to-transparent'
@@ -93,7 +94,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden p-2 text-merc-cream hover:text-amber-merc transition-colors"
+            className="lg:hidden p-3 text-merc-cream hover:text-amber-merc transition-colors"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             aria-expanded={isMobileOpen}
             aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
@@ -103,44 +104,53 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Menu Dropdown */}
-        {isMobileOpen && (
-          <div className="lg:hidden bg-merc-black border-t border-merc-border">
-            <nav aria-label="Mobile navigation">
-              <ul className="px-4 py-3 space-y-0.5" role="list">
-                {navLinks.map((link) => {
-                  const isActive =
-                    link.href === '/'
-                      ? pathname === '/'
-                      : pathname.startsWith(link.href)
-                  return (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className={`flex items-center gap-3 px-4 py-3 text-sm font-bold tracking-wider uppercase rounded-sm transition-colors ${
-                          isActive
-                            ? 'text-amber-merc bg-amber-merc/10 border-l-2 border-amber-merc pl-3'
-                            : 'text-merc-cream/70 hover:text-merc-cream hover:bg-merc-surface'
-                        }`}
-                        aria-current={isActive ? 'page' : undefined}
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  )
-                })}
-              </ul>
-              <div className="px-4 pb-6 pt-3 border-t border-merc-border mt-1">
-                <OrderOnlineButton variant="full" />
-              </div>
-            </nav>
-          </div>
-        )}
+        <AnimatePresence>
+          {isMobileOpen && (
+            <motion.div
+              key="mobile-menu"
+              className="lg:hidden bg-merc-black border-t border-merc-border"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <nav aria-label="Mobile navigation">
+                <ul className="px-4 py-3 space-y-0.5" role="list">
+                  {navLinks.map((link) => {
+                    const isActive =
+                      link.href === '/'
+                        ? pathname === '/'
+                        : pathname.startsWith(link.href)
+                    return (
+                      <li key={link.href}>
+                        <Link
+                          href={link.href}
+                          className={`flex items-center gap-3 px-4 py-3 text-sm font-bold tracking-wider uppercase rounded-sm transition-colors ${
+                            isActive
+                              ? 'text-amber-merc bg-amber-merc/10 border-l-2 border-amber-merc pl-3'
+                              : 'text-merc-cream/70 hover:text-merc-cream hover:bg-merc-surface'
+                          }`}
+                          aria-current={isActive ? 'page' : undefined}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
+                <div className="px-4 pb-6 pt-3 border-t border-merc-border mt-1">
+                  <OrderOnlineButton variant="full" />
+                </div>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Skip to content for accessibility */}
       <a
         href="#main-content"
-        className="fixed top-4 left-4 z-[100] btn-primary text-sm -translate-y-20 focus:translate-y-0 transition-transform duration-150 focus:outline-none"
+        className="fixed top-4 left-4 z-[100] btn-primary text-sm -translate-y-20 focus:translate-y-0 transition-transform duration-150"
       >
         Skip to main content
       </a>

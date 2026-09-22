@@ -16,8 +16,8 @@ export default function HomePage() {
       <FoodDrink />
       <DakotaJoe />
       <UpcomingEvents />
-      <SocialFollow />
       <VisitCTA />
+      <SocialFollow />
     </>
   )
 }

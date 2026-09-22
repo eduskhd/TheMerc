@@ -83,7 +83,7 @@ export default function Welcome() {
                   src="/images/venue/merc-bar.jpg"
                   alt="The Merc bar interior — rustic wood bar, THE MERC sign, longhorn skull"
                   fill
-                  className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-center transition-transform duration-300 [@media(hover:hover)_and_(pointer:fine)]:hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-merc-black/30 to-transparent" aria-hidden="true" />
@@ -95,7 +95,7 @@ export default function Welcome() {
                   src="/images/venue/merc-cocktail.jpg"
                   alt="Craft cocktail at The Merc — Bloody Mary with THE MERC bar in background"
                   fill
-                  className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-center transition-transform duration-300 [@media(hover:hover)_and_(pointer:fine)]:hover:scale-105"
                   sizes="(max-width: 1024px) 50vw, 25vw"
                 />
               </div>
@@ -106,7 +106,7 @@ export default function Welcome() {
                   src="/images/venue/merc-events.jpg"
                   alt="Live music at The Merc outdoor stage — string lights, band, community"
                   fill
-                  className="object-cover object-top hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-top transition-transform duration-300 [@media(hover:hover)_and_(pointer:fine)]:hover:scale-105"
                   sizes="(max-width: 1024px) 50vw, 25vw"
                 />
               </div>

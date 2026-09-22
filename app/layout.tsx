@@ -5,6 +5,7 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import MobileBottomBar from '@/components/layout/MobileBottomBar'
 import { business } from '@/data/business'
+import { socials } from '@/data/socials'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -103,8 +104,9 @@ const jsonLd = {
   telephone: business.contact.phone,
   url: siteUrl,
   sameAs: [
-    'https://www.facebook.com/SiouxRiverSpirits/',
-    'https://www.instagram.com/themercsodak/',
+    socials.facebook.url,
+    socials.instagram.url,
+    socials.tiktok.url,
   ],
   openingHoursSpecification: [
     {

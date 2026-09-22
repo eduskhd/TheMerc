@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Coffee } from 'lucide-react'
 import { socials } from '@/data/socials'
 
 export default function DakotaJoe() {
@@ -31,7 +31,7 @@ export default function DakotaJoe() {
               className="w-12 h-12 rounded-sm bg-amber-merc/10 border border-amber-merc/20 flex items-center justify-center mb-6"
               aria-hidden="true"
             >
-              <span className="text-2xl">☕</span>
+              <Coffee size={24} className="text-amber-merc" aria-hidden="true" />
             </div>
 
             <p className="section-label mb-3">Coffee Bar</p>

@@ -89,12 +89,12 @@ export default async function GalleryPage() {
                 src={item.src}
                 alt={item.alt}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-105"
                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 300px"
               />
 
               {/* Hover overlay */}
-              <div className="absolute inset-0 bg-merc-black/0 group-hover:bg-merc-black/50 transition-all duration-300 flex items-end p-4">
+              <div className="absolute inset-0 bg-merc-black/0 group-hover:bg-merc-black/50 transition-colors duration-300 flex items-end p-4">
                 <p className="text-merc-cream text-xs font-medium tracking-wide opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
                   {item.alt.split('—')[0].trim()}
                 </p>

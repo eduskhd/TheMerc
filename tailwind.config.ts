@@ -27,7 +27,7 @@ const config: Config = {
           surface: '#221C16',
           card: '#2C2418',
           border: '#3D3220',
-          muted: '#7A6A50',
+          muted: '#9A8A6A',
           warm: '#D4943A',
           cream: '#F5EFE0',
           red: '#9B3A2E',
@@ -69,7 +69,6 @@ const config: Config = {
         'fade-up-slow': 'fadeUp 0.9s ease-out forwards',
         'fade-in': 'fadeIn 0.4s ease-out forwards',
         'glow-pulse': 'glowPulse 2.5s ease-in-out infinite',
-        'slide-right': 'slideRight 0.3s ease-out forwards',
       },
       keyframes: {
         fadeUp: {
@@ -82,11 +81,7 @@ const config: Config = {
         },
         glowPulse: {
           '0%, 100%': { boxShadow: '0 0 8px rgba(212, 148, 58, 0.4)' },
-          '50%': { boxShadow: '0 0 24px rgba(212, 148, 58, 0.7)' },
-        },
-        slideRight: {
-          '0%': { transform: 'translateX(-8px)', opacity: '0' },
-          '100%': { transform: 'translateX(0)', opacity: '1' },
+          '50%': { boxShadow: '0 0 28px rgba(212, 148, 58, 0.8)' },
         },
       },
     },

@@ -1,8 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { ShoppingBag, Clock } from 'lucide-react'
+import { ShoppingBag, Phone } from 'lucide-react'
 import { squareOrderUrl } from '@/lib/square/config'
+import { business } from '@/data/business'
 
 interface OrderOnlineButtonProps {
   variant?: 'navbar' | 'hero' | 'full' | 'mobile'
@@ -31,14 +32,14 @@ export default function OrderOnlineButton({
       )
     }
     return (
-      <span
-        className={`inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold tracking-widest uppercase bg-merc-surface text-merc-muted rounded-sm cursor-not-allowed border border-merc-border whitespace-nowrap ${className}`}
-        title="Online ordering coming soon"
-        aria-label="Online ordering coming soon"
+      <Link
+        href={business.contact.phoneHref}
+        className={`btn-primary text-xs px-4 py-2.5 whitespace-nowrap ${className}`}
+        aria-label={`Call The Merc at ${business.contact.phone} to order`}
       >
-        <Clock size={12} />
-        Order Online
-      </span>
+        <Phone size={14} />
+        Order by Phone
+      </Link>
     )
   }
 
@@ -58,13 +59,14 @@ export default function OrderOnlineButton({
       )
     }
     return (
-      <span
-        className={`flex flex-col items-center gap-1 text-merc-muted cursor-not-allowed ${className}`}
-        title="Coming soon"
+      <Link
+        href={business.contact.phoneHref}
+        className={`flex flex-col items-center gap-1 text-amber-merc ${className}`}
+        aria-label={`Call The Merc at ${business.contact.phone}`}
       >
-        <ShoppingBag size={22} />
+        <Phone size={22} />
         <span className="text-[10px] font-semibold tracking-widest uppercase">Order</span>
-      </span>
+      </Link>
     )
   }
 
@@ -85,18 +87,13 @@ export default function OrderOnlineButton({
   }
 
   return (
-    <div className={`text-center ${className}`}>
-      <div className="inline-flex flex-col items-center gap-2 px-8 py-5 bg-merc-surface border border-merc-border rounded-sm">
-        <Clock size={20} className="text-amber-merc" />
-        <div>
-          <p className="text-sm font-bold tracking-widest uppercase text-merc-cream">
-            Online Ordering
-          </p>
-          <p className="text-xs text-merc-muted tracking-wider uppercase mt-0.5">
-            Coming Soon
-          </p>
-        </div>
-      </div>
-    </div>
+    <Link
+      href={business.contact.phoneHref}
+      className={`btn-primary ${className}`}
+      aria-label={`Call The Merc at ${business.contact.phone} to order`}
+    >
+      <Phone size={16} />
+      {business.contact.phone}
+    </Link>
   )
 }

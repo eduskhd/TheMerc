@@ -39,7 +39,7 @@ function EventCard({ event }: { event: MercEvent }) {
           src={event.image ?? '/images/venue/merc-events.jpg'}
           alt={event.image ? event.artist : `Live music at The Merc`}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          className="object-cover transition-transform duration-300 [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-105"
           sizes="112px"
         />
         {/* Event type badge */}
@@ -116,7 +116,7 @@ export default function UpcomingEvents() {
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <span
-                    className="w-2 h-2 rounded-full bg-amber-merc animate-pulse"
+                    className="w-2 h-2 rounded-full bg-amber-merc"
                     aria-hidden="true"
                   />
                   <p className="section-label">Tonight at The Merc</p>

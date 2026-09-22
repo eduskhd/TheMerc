@@ -66,7 +66,7 @@ export default function SocialFollow() {
                 aria-label={`Follow The Merc on ${social.platform}: ${social.handle}`}
               >
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-110"
+                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 transition-transform duration-200 [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-105"
                   style={{ background: `${social.color}20`, border: `1px solid ${social.color}30` }}
                 >
                   <Icon size={22} style={{ color: social.color }} />
